@@ -1,0 +1,20 @@
+Name: Alfonso Torres
+Hobbies: biking, video games, hiking
+Interesting Fact: I tried stand up 3 times and it went alright. 
+
+Name: Sean Quevedo
+Hobbies: basketball, rhythm video games, league of legends
+Interesting Fact: I broke my arm in 1st grade by drifting down a hill. 
+
+Name: Sovreign-Ariel McCarthy
+<<<<<<< HEAD:team roster/teamRoster.txt
+Hobbies: Hacky sack, skateboarding, swimming, singing, and giving people advice.
+Interesting Fact: I can do one-handed cartwheels.
+=======
+Hobbies: Hacky sack, skateboarding, singing, swimming, and giving people advice.
+Interesting Fact: I can do one-handed cartwheels.
+
+Name: Austin Gray
+Hobbies: League of Legends, Game Design, Music Production
+Interesting Fact: 6 foot six inches tall 
+>>>>>>> 788763ea69e5d9397c27e3f5048f9f5e186215be:teamRoster.txt
