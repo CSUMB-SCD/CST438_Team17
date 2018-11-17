@@ -1,12 +1,14 @@
-<div style="text-align:right">
-    <button type="Logout">Logout</button>
-</div>
-<div style="text-align:right">
-    <button type="Confirm Checkout">Confirm Checkout</button>
-</div>
+<form >
+  <div style="text-align:right">
+      <button type="Logout">Logout</button>
+  </div>
+  <div style="text-align:right">
+      <button type="Confirm Checkout" (click)="confirmCheckout()">Confirm Checkout</button>
+  </div>
+</form>
 <br/> <br/>
 <div style="text-align:center">
-  <img src="./img/checkout3.png" alt="Checkout Logo" style="width:250px; height:100px"/>
+  <img src="./../img/checkout3.png" alt="Checkout Logo" style="width:250px; height:100px"/>
 </div>
 <br/> <br/> <br/>
 <table>
@@ -15,27 +17,22 @@
     <th>Amount of Items</th>
   </tr>
   <tr>
-    <td><img src="./img/live-concert.png" alt="Concert Logo" style="width:250px; height:100px"/></td>
+    <td><pre><img src="./img/live-concert.png" alt="Concert Logo" style="width:250px; height:100px"/>                      Artist: {{title}} <br/>                              Location: {{venue}} <br/>                              Date/Time {{date}} </pre> </td>
     <td>
-      <select name="amt items">
-        <option value="none">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
+      <pre>Amount of Tickets: {{ticketCount}}          Price: ${{price}}.00 </pre>
     </td>
   </tr>
   <tr>
-    <td><img src="./img/generic-ticket2.png" alt="Concert Logo" style="width:250px; height:100px"/></td>
+    <td><pre><img src="./img/generic-ticket2.png" alt="Concert Logo" style="width:250px; height:100px"/>
+      <ul><li *ngFor="let element of show; let i = index">{{i+1}} {{element}} /li></ul></pre></td>
     <td>
-      <select name="amt items">
-        <option value="none">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
+      <pre>Amount of Tickets: <ul><li>*ngFor="let ticket of tickets; let i = index" {{i+1}} {{tickets}}</li></ul></pre>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="./img/live-concert.png" alt="Concert Logo" style="width:250px; height:100px"/></td>
+    <td>
+      amt_items;
     </td>
   </tr>
   </table>
