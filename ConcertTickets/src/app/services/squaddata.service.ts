@@ -15,6 +15,7 @@ export class SquaddataService {
     this.URL = '';
   }
   getSquad() {
-    return this.httpClient.get<Array<SquadMember>>(this.URL);
+    return this.httpClient.get<Array<SquadMember>>(
+      'https://api.myjson.com/bins/14g5si');
   }
 }
