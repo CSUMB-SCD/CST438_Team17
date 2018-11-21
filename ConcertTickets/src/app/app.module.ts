@@ -1,12 +1,14 @@
+import { SquaddataService } from './services/squaddata.service';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
+import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -35,6 +37,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -44,7 +48,7 @@ const appRoutes: Routes = [
       appRoutes,
     )
   ],
-  providers: [],
+  providers: [SquaddataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
