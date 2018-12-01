@@ -1,0 +1,35 @@
+h1{
+    text-align: center;
+  }
+  
+mat-grid-tile {
+    background: white;
+}
+mat-grid-tile-header{
+    justify-content: center;
+}
+mat-grid-tile-footer{
+    justify-content: center;
+    display:block;
+    font-size: 20px;
+    //padding: 20px;
+}
+#head{
+    color:#fedc3d;
+    font-size: 20px;
+}
+button{
+    background-color: black;
+    color:#fedc3d;
+}
+
+span{
+padding: 20px;
+}
+
+div{
+    position: relative;
+    padding-left: 400px;
+    padding-right:400px;
+}
+  
