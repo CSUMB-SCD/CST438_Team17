@@ -23,7 +23,9 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'concerts', component: ConcertsComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'signin', component: SigninComponent }
+  { path: 'signin', component: SigninComponent },
+  { path: 'details', component: DetailsComponent },
+  { path: 'confirmation', component: SigninComponent }
 ];
 
 @NgModule({
