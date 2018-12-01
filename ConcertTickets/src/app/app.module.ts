@@ -16,6 +16,8 @@ import { ConcertsComponent } from './components/concerts/concerts.component';
 import { ThankyouComponent } from './components/thankyou/thankyou.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,8 +35,7 @@ const appRoutes: Routes = [
     CheckoutComponent,
     DetailsComponent,
     ThankyouComponent,
-    ConfirmationComponent
-  ],
+    ConfirmationComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -44,6 +45,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatCheckboxModule,
     MatToolbarModule,
+    MatGridListModule,
+    MatFormFieldModule,
     RouterModule.forRoot(
       appRoutes,
     )
