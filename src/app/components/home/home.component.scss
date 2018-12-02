@@ -2,6 +2,11 @@ mat-grid-tile {
   background: white;
 }
 
+button{
+  background-color: black;
+  color:#fedc3d;
+}
+
 mat-grid-tile-header{
   justify-content: center;
   background-color:black;
@@ -36,7 +41,7 @@ a:active {
   color:black;
   text-decoration: none;
 }
-div{
+#concert{
   position: relative;
   padding-left: 400px;
   padding-right:400px;
