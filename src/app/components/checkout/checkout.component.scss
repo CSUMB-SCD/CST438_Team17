@@ -16,11 +16,18 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #c7c6c6;
+  color: black;
 }
 
 button{
   background-color: black;
   color:#fedc3d;
+}
+
+#button2
+{
+  display: flex;
+  justify-content: center;
 }
 
 span{
