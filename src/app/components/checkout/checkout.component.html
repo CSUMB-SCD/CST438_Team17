@@ -5,10 +5,7 @@
 
 <form >
   <div style="text-align:right">
-      <button type="Logout">Logout</button>
-  </div>
-  <div style="text-align:right">
-      <button type="Confirm Checkout" (click)="confirmCheckout()">Confirm Checkout</button>
+    <span><button mat-button routerLink="/">Logout</button></span>
   </div>
 </form>
 <br/> <br/>
@@ -32,5 +29,6 @@
 </td>
   </tr>
   </table>
+  <span><button mat-button routerLink="/confirmation">Confirm Purchase</button></span>
 
 <router-outlet></router-outlet>
