@@ -7,16 +7,18 @@
   <div id="button1">
     <span><button mat-button routerLink="/">Logout</button></span>
   </div>
-  <div>
+  <div *ngFor= "let element of tick$">
+
+
     <mat-grid-list cols="2" rowHeight="300px" gutterSize="25px">
       <mat-grid-tile>
         <mat-grid-tile-header>
           <h1 id="head">Concert 1</h1>
         </mat-grid-tile-header>
         <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
+          <span>Price: </span><pre> {{ element.price }} </pre>
           <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
+          <input size="1" matInput placeholder="{{ element.quantity }}"><pre> </pre>
           <span><button mat-button>Add to Cart</button></span><pre> </pre>
           <span><button mat-button routerLink="/details">Details</button></span>
         </mat-grid-tile-footer>
