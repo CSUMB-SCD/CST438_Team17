@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AppService } from 'src/app/app.service';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  templateUrl: './signin.component.html'
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent {
 
-  constructor() { }
+  credentials = {username: '', password: ''};
 
-  ngOnInit() {
+  constructor(private app: AppService, private http: HttpClient, private router: Router) {
+  }
+
+  login() {
+    this.app.authenticate(this.credentials, () => {
+        this.router.navigateByUrl('home');
+    });
+    return false;
   }
 
 }
