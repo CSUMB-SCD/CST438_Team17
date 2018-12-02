@@ -25,9 +25,9 @@ export class CheckoutComponent implements OnInit {
     // this.show = [this.title, this.venue, this.date];
     // this.tickets = [this.quantity, this.price];
 
-    this.squadService.getSquad().subscribe(
-      squadService => this.tick$ = squadService
-    );
+    // this.squadService.getSquad().subscribe(
+    //   squadService => this.tick$ = squadService
+    // );
   }
 
 }
