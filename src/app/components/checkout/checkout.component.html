@@ -25,10 +25,11 @@
       <td> {{ element.venue }} </td>
       <td>{{ element.date }}</td>
 
-      <td>Amount of Tickets: {{element.quantity}} <br/> Price for each: {{element.price}}
+      <td>Amount of Tickets: <input size="1" matInput placeholder="{{element.quantity}}"> <br/> Price for each: {{element.price}}
 </td>
   </tr>
   </table>
-  <span><button mat-button routerLink="/confirmation">Confirm Purchase</button></span>
-
+  <div id="button2">
+    <span><button mat-button routerLink="/confirmation">Confirm Purchase</button></span>
+  </div>
 <router-outlet></router-outlet>
