@@ -1,6 +1,10 @@
 h1{
   text-align: center;
 }
+#button1
+{
+  position: relative;
+}
 
 mat-grid-tile {
   background: white;
@@ -27,6 +31,6 @@ span{
 }
 div{
   position: relative;
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
