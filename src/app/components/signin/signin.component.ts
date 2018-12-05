@@ -2,23 +2,33 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
-import { SquaddataService } from '../../services/squaddata.service';
+import { SignInService } from './signin.service';
+import { SignIn } from './siginin';
+import { ObservableLike } from 'rxjs';
 
 @Component({
   templateUrl: './signin.component.html'
 })
-export class SigninComponent {
+export class SignInComponent {
 
-  credentials = {username: '', password: ''};
-  user = {};
+  user: SignIn = new SignIn;
+  submitted = false;
+  checkname: Object;
 
-  constructor(private squadService: SquaddataService, private router: Router) {
+  constructor(private app: SignInService, private http: HttpClient, private router: Router) {
   }
 
   login() {
-      this.squadService.getUsers().subscribe(
-        squadService => this.user = squadService
-      );
+    this.app.getUser(this.user.username).subscribe(data => this.checkname = data);
+    if (this.app.getUser(this.user.username)) {
+      this.submitted = true;
+      // this.router.navigate(['../home']);
+    } else {
+      this.submitted = false;
+
+      this.router.navigate(['../checkout']);
+    }
+    return false;
   }
 
 }

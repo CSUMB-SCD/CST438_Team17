@@ -8,11 +8,12 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/m
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpRequest, HttpInterceptor, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppService } from './app.service';
+import { SignInService } from './components/signin/signin.service';
 
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { SigninComponent } from './components/signin/signin.component';
+import { SignInComponent } from './components/signin/signin.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ConcertsComponent } from './components/concerts/concerts.component';
 import { ThankyouComponent } from './components/thankyou/thankyou.component';
@@ -21,24 +22,13 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClient } from 'selenium-webdriver/http';
-
-@Injectable()
-export class XhrInterceptor implements HttpInterceptor {
-
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const xhr = req.clone({
-      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
-    });
-    return next.handle(xhr);
-  }
-}
-
+import { SignIn } from './components/signin/siginin';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'concerts', component: ConcertsComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'signin', component: SigninComponent }
+  { path: 'signin', component: SignInComponent }
 ];
 
 @NgModule({
@@ -46,7 +36,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     ConcertsComponent,
-    SigninComponent,
+    SignInComponent,
     CheckoutComponent,
     DetailsComponent,
     ThankyouComponent,
@@ -66,7 +56,7 @@ const appRoutes: Routes = [
       appRoutes,
     )
   ],
-  providers: [AppService, { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }, SquaddataService],
+  providers: [AppService, SignInService, SquaddataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
