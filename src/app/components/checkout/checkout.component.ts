@@ -7,7 +7,7 @@ import { SquaddataService } from '../../services/squaddata.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  tick$: {};
+  tick$:{};
   ticket$: {
   artist: string;
   venue: string;
