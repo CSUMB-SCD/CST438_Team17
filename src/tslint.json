@@ -8,7 +8,7 @@
             "camelCase"
         ],
         "component-selector": [
-            false,
+            true,
             "element",
             "app",
             "kebab-case"
