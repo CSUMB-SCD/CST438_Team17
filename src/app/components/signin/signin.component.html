@@ -1,15 +1,22 @@
-<!-- 
-<div class="alert alert-danger" [hidden]="!error">
-	There was a problem logging in. Please try again.
+<h3>Sign In!</h3>
+<div [hidden]="submitted" style="width: 300px;">
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="String" class="form-control" id="username" required [(ngModel)]="user.username" name="name">
+    </div>
+ 
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password"  name="password">
+    </div>
+ 
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
 </div>
-<form role="form" (submit)="login()">
-	<div class="form-group">
-		<label for="username">Username:</label> <input type="text"
-			class="form-control" id="username" name="username" [(ngModel)]="credentials.username"/>
-	</div>
-	<div class="form-group">
-		<label for="password">Password:</label> <input type="password"
-			class="form-control" id="password" name="password" [(ngModel)]="credentials.password"/>
-	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
+ 
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <h1>Welcome! {{ checkname[0].username }} You have ${{checkname[0].funds}} !</h1>
+  <button class="btn btn-success" (click)="login()">Log In</button>
+</div>
