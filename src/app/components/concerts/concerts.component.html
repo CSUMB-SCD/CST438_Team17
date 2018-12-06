@@ -4,22 +4,20 @@
 
 <body>
   <h1>Concerts</h1>
-  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>
-  <div>  
-    <mat-card>
-      <mat-card-title>Eminem</mat-card-title>
-        <img src="../assets/images/eminem.jpg" alt="Test Concert" width="200" height="150">
+  <div> 
+    <mat-card *ngFor="let element of ticket$">
+      <mat-card-title>{{ element.artist }}</mat-card-title>
+        <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
         <mat-card-actions>
-          <span>Price: </span>
+          <span>Price: {{ element.price }}</span>
           <span>Amount: <input size="1" matInput placeholder="#"></span>
-          <span>Stock: </span>
+          <span>Stock: {{ element.quantity }}</span>
           <span><button mat-button>Add to Cart</button></span>
           <span><button mat-button routerLink="/details">Details</button></span>
         </mat-card-actions>
     </mat-card>
-    <br>
-    <mat-card>
-    <mat-card-title>Green Day</mat-card-title>
+    <!-- <mat-card>
+    <mat-card-title>{{ element.artist }}</mat-card-title>
       <img src="../assets/images/greenday.jpg" alt="Test Concert" width="200" height="150">
       <mat-card-actions>
         <span>Price: </span>
@@ -101,7 +99,7 @@
                 <span><button mat-button routerLink="/details">Details</button></span>
               </mat-card-actions>
           </mat-card>
-          <br>
+          <br> -->
   </div>
 </body>
 
