@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { SquaddataService } from '../../services/squaddata.service';
 import { SignInService } from '../signin/signin.service';
 import { SignIn } from '../signin/siginin';
+import { Ticket } from './../../models/ticket';
+import { TicketService } from './../../services/ticket.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,7 +15,8 @@ import { SignIn } from '../signin/siginin';
 })
 export class CheckoutComponent implements OnInit {
   tick$: {};
-  ticket$:  SquadMember[];
+  cart$: Ticket[];
+  ticket$:  Ticket[];
   user: SignIn;
   checkname: Object;
   message: String;
@@ -30,7 +33,11 @@ export class CheckoutComponent implements OnInit {
 
   // }
   constructor(private squadService: SquaddataService, private app: SignInService,
-    private http: HttpClient, private router: Router) {}
+    private http: HttpClient, private router: Router, private ticketService: TicketService) {
+      this.cart$ = ticketService.getTickets();
+      this.ticket$ = ticketService.getTickets();
+      console.log(this.cart$);
+    }
 
   ngOnInit() {
     // this.show = [this.title, this.venue, this.date];
@@ -42,12 +49,10 @@ export class CheckoutComponent implements OnInit {
     this.app.getUser(this.message).subscribe(data => this.checkname = data);
     console.log(this.checkname);
 
-    this.squadService.getMockData().subscribe(
-      squadService => this.ticket$ = squadService
+    // this.squadService.getMockData().subscribe(
+    //   squadService => this.ticket$ = squadService
 
-    // this.squadService.getSquad().subscribe(
-    //   squadService => this.tick$ = squadService
-    );
+    console.log(this.cart$);
   }
 
 }

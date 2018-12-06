@@ -1,3 +1,6 @@
+import { element } from 'protractor';
+import { Ticket } from './../../models/ticket';
+import { TicketService } from './../../services/ticket.service';
 import { SquadMember } from './../../models/squad-member';
 import { Component, OnInit, Inject } from '@angular/core';
 import { SquaddataService } from 'src/app/services/squaddata.service';
@@ -12,7 +15,8 @@ import { SquaddataService } from 'src/app/services/squaddata.service';
 
 export class ConcertsComponent implements OnInit {
   ticket$: SquadMember[];
-  constructor(private squadService: SquaddataService) { }
+  cart$: TicketService[];
+  constructor(private squadService: SquaddataService, private ticketService: TicketService) { }
 
   ngOnInit() {
     // this.getTickets();
@@ -21,6 +25,8 @@ export class ConcertsComponent implements OnInit {
     );
   }
 
-
+  public addCart(product: Ticket) {
+    this.ticketService.addTicket(product);
+  }
 
 }

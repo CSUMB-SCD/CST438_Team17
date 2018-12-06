@@ -12,7 +12,7 @@
           <span>Price: {{ element.price }}</span>
           <span>Amount: <input size="1" matInput placeholder="#"></span>
           <span>Stock: {{ element.quantity }}</span>
-          <span><button mat-button>Add to Cart</button></span>
+          <span><button mat-button (click)="addCart(element)">Add to Cart</button></span>
           <span><button mat-button routerLink="/details">Details</button></span>
         </mat-card-actions>
     </mat-card>

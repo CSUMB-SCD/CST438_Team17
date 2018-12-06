@@ -1,7 +1,8 @@
 export class Ticket {
-    id: number;
-    name: string;
-    date: string;
+    artist: string;
     venue: string;
-    numberOfTickets: number;
+    date: string;
+    quantity: number;
+    price: number;
+    description: string;
 }
