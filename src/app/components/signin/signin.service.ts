@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SignInService {
 
-  private baseUrl = 'https://team17userdb.herokuapp.com';
+  private baseUrl = 'https://team17userdb.herokuapp.com/';
   user: SignIn;
   private messageSource = new BehaviorSubject('x');
   currentMessage = this.messageSource.asObservable();
