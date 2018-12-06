@@ -10,16 +10,22 @@ import { Observable } from 'rxjs';
 })
 export class ConcertsComponent implements OnInit {
 
-  tickets: Observable<Ticket[]>;
+  tickets$: Observable<Ticket[]>;
 
   constructor(private ticketservice: TicketService) { }
 
   ngOnInit() {
-    this.reloadData();
+    this.getTickets();
   }
 
-  reloadData() {
-    this.tickets = this.ticketservice.getTicketsList();
+  // reloadData() {
+  //   this.tickets = this.ticketservice.getTicketsList();
+  // }
+
+  getTickets(): void {
+    this.ticketservice.getTicketsList().subscribe(
+     ticketservice => this.tickets$ = ticketservice
+    );
   }
 
 }

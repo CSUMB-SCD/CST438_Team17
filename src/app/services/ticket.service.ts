@@ -1,3 +1,4 @@
+import { Ticket } from './../models/ticket';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -15,6 +16,6 @@ export class TicketService {
   constructor(private http: HttpClient) { }
 
   getTicketsList(): Observable<any> {
-    return this.http.get(`${this.baseURL}`);
+    return this.http.get<Array<Ticket>>(`${this.baseURL}`);
   }
 }
