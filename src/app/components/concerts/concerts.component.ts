@@ -32,6 +32,11 @@ export class ConcertsComponent implements OnInit {
     this.squadService.getMockData().subscribe(
       squadService => this.ticket$ = squadService
     );
+    this.app.currentMessage.subscribe(message => this.message = message);
+    if (this.message === 'x') {
+      this.router.navigate(['../signin']);
+    }
+    this.app.getUser(this.message).subscribe(data => this.checkname = data);
   }
 
 
