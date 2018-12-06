@@ -1,4 +1,4 @@
-<head>
+<!-- <head>
   <h1>Concerts Page</h1>
 </head>
 
@@ -103,4 +103,14 @@
           <br>
   </div>
 
-</body>
+</body> -->
+
+<h1>Products</h1>
+ 
+<div *ngFor="let ticket of tickets$ | async" style="width: 300px;">
+  <tr>
+    <td>{{ticket.name}}</td>
+    <td></td>
+    <td></td>
+  </tr>
+</div>
