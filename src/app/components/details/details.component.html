@@ -5,23 +5,20 @@
 <body>
   <h1>Details</h1>
   <div>
-    <mat-grid-list cols="1" rowHeight="500px">
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert</h1>
-        </mat-grid-tile-header>
-        <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="650" height="400">
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
-  <div>
-    <h2>Concert Info:</h2>
+    <mat-card>
+        <mat-card-title>Eminem</mat-card-title>
+          <img src="../assets/images/eminem.jpg" alt="Test Concert" width="650" height="400">
+          <span>
+            <h2>Concert Info:</h2>
+          </span>
+          <mat-card-actions>
+            <span>Price: </span>
+            <span>Amount: <input size="1" matInput placeholder="#"></span>
+            <span>Stock: </span>
+            <span><button mat-button>Add to Cart</button></span>
+            <span><button mat-button routerLink="/details">Details</button></span>
+          </mat-card-actions>
+      </mat-card>
   </div>
 
 </body>
