@@ -8,6 +8,7 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/m
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpRequest, HttpInterceptor, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { StorageServiceModule} from 'angular-webstorage-service';
 
 
 
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     MatGridListModule,
     MatFormFieldModule,
     MatCardModule,
+    StorageServiceModule,
     RouterModule.forRoot(
       appRoutes,
     )

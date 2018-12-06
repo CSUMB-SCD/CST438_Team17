@@ -4,12 +4,12 @@
 
 <body>
   <h1>Welcome to Concert Tickets!</h1>
-  <h2>Welcome {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>
+  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>
   <div id="concert">
     <mat-grid-list cols="1" rowHeight="500px">
       <mat-grid-tile>
         <mat-grid-tile-header>
-          <h1 id="head">Random Concert</h1>
+          <h1 id="head">Concert of the Day</h1>
         </mat-grid-tile-header>
         <img src="../assets/images/strokes.jpg" alt="Test Concert" width="650" height="400">
         <mat-grid-tile-footer>
