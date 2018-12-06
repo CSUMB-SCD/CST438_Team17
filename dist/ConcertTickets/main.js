@@ -122,12 +122,11 @@ var AppComponent = /** @class */ (function () {
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
   \*******************************/
-/*! exports provided: XhrInterceptor, AppModule */
+/*! exports provided: AppModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "XhrInterceptor", function() { return XhrInterceptor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _services_squaddata_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./services/squaddata.service */ "./src/app/services/squaddata.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
@@ -174,21 +173,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-var XhrInterceptor = /** @class */ (function () {
-    function XhrInterceptor() {
-    }
-    XhrInterceptor.prototype.intercept = function (req, next) {
-        var xhr = req.clone({
-            headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
-        });
-        return next.handle(xhr);
-    };
-    XhrInterceptor = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])()
-    ], XhrInterceptor);
-    return XhrInterceptor;
-}());
+// import { HttpClient } from 'selenium-webdriver/http';
 
 var appRoutes = [
     { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"] },
@@ -505,7 +490,7 @@ var DetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Random Concert</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/testConcert.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n  <h1>Welcome! {{ checkname[0].username }} You have ${{checkname[0].funds}} !</h1>\r\n  {{ message }}\r\n    <button (click)=\"newMessage()\">New Message</button>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Random Concert</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/testConcert.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -531,6 +516,9 @@ module.exports = "mat-grid-tile {\n  background: white; }\n\nbutton {\n  backgro
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _signin_signin_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../signin/signin.service */ "./src/app/components/signin/signin.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -541,10 +529,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(app, http, router) {
+        this.app = app;
+        this.http = http;
+        this.router = router;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
+    };
+    HomeComponent.prototype.newMessage = function () {
+        this.app.changeMessage('Hello from Sibling');
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -552,7 +551,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/components/home/home.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_signin_signin_service__WEBPACK_IMPORTED_MODULE_3__["SignInService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -588,7 +587,7 @@ var SignIn = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Sign In!</h3>\r\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"String\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"user.username\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n \r\n<div [hidden]=\"!submitted\">\r\n  <h4>You submitted successfully!</h4>\r\n  <h1>Welcome! {{ checkname }} </h1>\r\n  <button class=\"btn btn-success\" (click)=\"login()\">Log In</button>\r\n</div>"
+module.exports = "<h3>Sign In!</h3>\r\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"String\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"user.username\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n \r\n<div [hidden]=\"!submitted\">\r\n  <h4>You submitted successfully!</h4>\r\n  <h1>Welcome! {{ checkname[0].username }} You have ${{checkname[0].funds}} !</h1>\r\n  <button class=\"btn btn-success\" (click)=\"login()\">Log In</button>\r\n</div>"
 
 /***/ }),
 
@@ -632,15 +631,20 @@ var SignInComponent = /** @class */ (function () {
     SignInComponent.prototype.login = function () {
         var _this = this;
         this.app.getUser(this.user.username).subscribe(function (data) { return _this.checkname = data; });
-        if (this.app.getUser(this.user.username)) {
+        console.log(this.checkname);
+        if (this.user.username === this.checkname[0].username) {
             this.submitted = true;
-            // this.router.navigate(['../home']);
+            this.router.navigate(['../']);
         }
         else {
             this.submitted = false;
-            this.router.navigate(['../checkout']);
+            // this.router.navigate(['../checkout']);
         }
         return false;
+    };
+    SignInComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
     };
     SignInComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -667,6 +671,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInService", function() { return SignInService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -678,13 +683,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var SignInService = /** @class */ (function () {
     function SignInService(http) {
         this.http = http;
         this.baseUrl = 'http://localhost:8080/';
+        this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('default message');
+        this.currentMessage = this.messageSource.asObservable();
     }
     SignInService.prototype.getUser = function (username) {
         return this.http.get(this.baseUrl + "signin/" + username);
+    };
+    SignInService.prototype.changeMessage = function (message) {
+        this.messageSource.next(message);
     };
     SignInService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
