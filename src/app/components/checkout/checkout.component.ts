@@ -29,8 +29,8 @@ export class CheckoutComponent implements OnInit {
 
     this.squadService.getMockData().subscribe(
       squadService => this.ticket$ = squadService
-    
 
+      
     // this.squadService.getSquad().subscribe(
     //   squadService => this.tick$ = squadService
     );
