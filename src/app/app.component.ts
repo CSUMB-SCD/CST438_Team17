@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
-// import 'rxjs/add/operator/finally';
-
+//import 'rxjs/add/operator/finally';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +15,5 @@ export class AppComponent {
     //       this.router.navigateByUrl('/signin');
     //   }).subscribe();
     // }
-
 
 }
