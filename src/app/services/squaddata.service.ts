@@ -1,6 +1,8 @@
 import { SquadMember } from '../models/squad-member';
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -9,6 +11,8 @@ import { HttpClient} from '@angular/common/http';
 
 export class SquaddataService {
   URL: string;
+  private cartSource = new BehaviorSubject('x');
+  currentMessage = this.cartSource.asObservable();
 
   constructor(protected httpClient: HttpClient) {
     console.log('squad is working');
