@@ -8,18 +8,14 @@ import { Injectable } from '@angular/core';
 })
 export class TicketService {
 
-  private tickets[:string];
-
-  private tickets: string["Eminem" ,"Tom"];
-
+  constructor() { }
   // TO-DO attach heroku link to ticketssvc here
   // private baseURL = 'herokuapp.com/whatever';
-  private baseURL = 'https://team17-ticketservice.herokuapp.com/ConcertTickets';
+  // private baseURL = 'https://team17-ticketservice.herokuapp.com/ConcertTickets';
   // allTickets: Ticket[];
- 
-  constructor(private http: HttpClient) { }
+  // constructor(private http: HttpClient) { }
 
-  getTicketsList(): Observable<any> {
-    return this.http.get<Array<Ticket>>(`${this.baseURL}`);
-  }
+  // getTicketsList(): Observable<any> {
+  //   return this.http.get<Array<Ticket>>(`${this.baseURL}`);
+  // }
 }
