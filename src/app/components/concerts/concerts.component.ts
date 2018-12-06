@@ -1,3 +1,6 @@
+import { element } from 'protractor';
+import { Ticket } from './../../models/ticket';
+import { TicketService } from './../../services/ticket.service';
 import { HttpClient } from '@angular/common/http';
 import { SquadMember } from './../../models/squad-member';
 import { Component, OnInit, Inject } from '@angular/core';
@@ -23,9 +26,11 @@ export class ConcertsComponent implements OnInit {
   checkname: Object;
   message: String;
   ticket$: SquadMember[];
+  cart$: TicketService[];
+  // constructor(private squadService: SquaddataService, private ticketService: TicketService) { }
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,
   private app: SignInService, private http: HttpClient, private router: Router,
-  private squadService: SquaddataService) { }
+  private squadService: SquaddataService, private ticketService: TicketService) { }
 
   ngOnInit() {
     // this.getTickets();
@@ -39,6 +44,8 @@ export class ConcertsComponent implements OnInit {
     this.app.getUser(this.message).subscribe(data => this.checkname = data);
   }
 
-
+  public addCart(product: Ticket) {
+    this.ticketService.addTicket(product);
+  }
 
 }

@@ -8,13 +8,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TicketService {
-  private tickets: string[] = [];
+  private tickets: Ticket[];
   constructor() {
-    this.tickets.push('Eminem', 'Green Day', 'Dillon Francis', 'Twenty One Pilots', 'The Strokes', 'Boy Pablo', 'Kendrick Lamar', 'Drake');
-   }
+    this.tickets = [];
+  }
 
-   getTickets(): String[] {
+   getTickets(): Ticket[] {
     return this.tickets;
+  }
+
+  addTicket(newTick: Ticket) {
+    this.tickets.push(newTick);
   }
   // TO-DO attach heroku link to ticketssvc here
   // private baseURL = 'herokuapp.com/whatever';
