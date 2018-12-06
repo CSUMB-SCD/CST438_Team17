@@ -5,103 +5,101 @@
 <body>
   <h1>Concerts</h1>
   <div>
-    <mat-grid-list cols="2" rowHeight="300px" gutterSize="25px">
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 1</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 2</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 3</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-            <span>Price: </span><pre>  </pre>
-            <span>Amount:</span>
-            <input size="1" matInput placeholder="#"><pre> </pre>
-            <span><button mat-button>Add to Cart</button></span><pre> </pre>
-            <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 4</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 5</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 6</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 7</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-grid-tile-header>
-          <h1 id="head">Concert 8</h1>
-        </mat-grid-tile-header>
-        <mat-grid-tile-footer>
-          <span>Price: </span><pre>  </pre>
-          <span>Amount:</span>
-          <input size="1" matInput placeholder="#"><pre> </pre>
-          <span><button mat-button>Add to Cart</button></span><pre> </pre>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-grid-tile-footer>
-      </mat-grid-tile>
-    </mat-grid-list>
+      <head>
+          <h1>Concerts Page</h1>
+        </head>
+        
+        <body>
+        
+          <h1>Concerts</h1>
+          <div>  
+            <mat-card>
+              <mat-card-title>Concert #1</mat-card-title>
+                <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="200" height="175">
+                <mat-card-actions>
+                  <span>Price: </span>
+                  <span>Amount: <input size="1" matInput placeholder="#"></span>
+                  <span>Stock: </span>
+                  <span><button mat-button>Add to Cart</button></span>
+                  <span><button mat-button routerLink="/details">Details</button></span>
+                </mat-card-actions>
+            </mat-card>
+            <br>
+            <mat-card>
+            <mat-card-title>Concert #2</mat-card-title>
+              <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="200" height="175">
+              <mat-card-actions>
+                <span>Price: </span>
+                <span>Amount: <input size="1" matInput placeholder="#"></span>
+                <span>Stock: </span>
+                <span><button mat-button>Add to Cart</button></span>
+                <span><button mat-button routerLink="/details">Details</button></span>
+              </mat-card-actions>
+          </mat-card>
+          <br>
+          <mat-card>
+              <mat-card-title>Concert #3</mat-card-title>
+                <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="200" height="175">
+                <mat-card-actions>
+                  <span>Price: </span>
+                  <span>Amount: <input size="1" matInput placeholder="#"></span>
+                  <span>Stock: </span>
+                  <span><button mat-button>Add to Cart</button></span>
+                  <span><button mat-button routerLink="/details">Details</button></span>
+                </mat-card-actions>
+            </mat-card>
+          <br>
+          <mat-card>
+              <mat-card-title>Concert #4</mat-card-title>
+                <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="200" height="175">
+                <mat-card-actions>
+                  <span>Price: </span>
+                  <span>Amount: <input size="1" matInput placeholder="#"></span>
+                  <span>Stock: </span>
+                  <span><button mat-button>Add to Cart</button></span>
+                  <span><button mat-button routerLink="/details">Details</button></span>
+                </mat-card-actions>
+            </mat-card>
+            <br>
+            <mat-card>
+              <mat-card-title>Concert #5</mat-card-title>
+                <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="200" height="175">
+                <mat-card-actions>
+                  <span>Price: </span>
+                  <span>Amount: <input size="1" matInput placeholder="#"></span>
+                  <span>Stock: </span>
+                  <span><button mat-button>Add to Cart</button></span>
+                  <span><button mat-button routerLink="/details">Details</button></span>
+                </mat-card-actions>
+            </mat-card>
+            <br>
+            <mat-card>
+                <mat-card-title>Concert #6</mat-card-title>
+                  <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="200" height="175">
+                  <mat-card-actions>
+                    <span>Price: </span>
+                    <span>Amount: <input size="1" matInput placeholder="#"></span>
+                    <span>Stock: </span>
+                    <span><button mat-button>Add to Cart</button></span>
+                    <span><button mat-button routerLink="/details">Details</button></span>
+                  </mat-card-actions>
+              </mat-card>
+              <br>
+              <mat-card>
+                  <mat-card-title>Concert #7</mat-card-title>
+                    <img src="../assets/images/testConcert.jpg" alt="Test Concert" width="200" height="175">
+                    <mat-card-actions>
+                      <span>Price: </span>
+                      <span>Amount: <input size="1" matInput placeholder="#"></span>
+                      <span>Stock: </span>
+                      <span><button mat-button>Add to Cart</button></span>
+                      <span><button mat-button routerLink="/details">Details</button></span>
+                    </mat-card-actions>
+                </mat-card>
+                <br>
+         
+          </div>
+        
+        </body>
   </div>
 </body>
