@@ -9,6 +9,8 @@ import { SignInComponent } from './../signin/signin.component';
 import { ObservableLike } from 'rxjs';
 import { SignInService } from '../signin/signin.service';
 import { SignIn } from '../signin/siginin';
+import { SquaddataService } from '../../services/squaddata.service';
+import { SquadMember } from './../../models/squad-member';
 
 @Component({
   selector: 'app-concerts',
@@ -23,7 +25,8 @@ export class ConcertsComponent implements OnInit {
   checkname: Object;
   message: String;
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,
-  private app: SignInService, private http: HttpClient, private router: Router) { }
+  private app: SignInService, private http: HttpClient, private router: Router,
+  private squadService: SquaddataService) { }
 
   ngOnInit() {
   this.app.currentMessage.subscribe(message => this.message = message);

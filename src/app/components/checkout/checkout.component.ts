@@ -43,10 +43,7 @@ export class CheckoutComponent implements OnInit {
     console.log(this.checkname);
 
     this.squadService.getMockData().subscribe(
-      squadService => this.ticket$ = squadService
-    // this.squadService.getSquad().subscribe(
-    //   squadService => this.tick$ = squadService
-    );
+      squadService => this.ticket$ = squadService);
   }
 
 }
