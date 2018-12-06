@@ -1,3 +1,4 @@
+import { SquadMember } from './../../models/squad-member';
 import { Component, OnInit } from '@angular/core';
 import { SquaddataService } from '../../services/squaddata.service';
 
@@ -8,13 +9,14 @@ import { SquaddataService } from '../../services/squaddata.service';
 })
 export class CheckoutComponent implements OnInit {
   tick$: {};
-  ticket$: {
-  artist: string;
-  venue: string;
-  date: string;
-  quantity: number;
-  price: number;
-  };
+  ticket$:  SquadMember[]; //[{
+  // artist: string;
+  // venue: string;
+  // date: string;
+  // quantity: number;
+  // price: number;
+  // description: string;
+  // }];
 
   // confirmCheckout() {
 
@@ -25,8 +27,12 @@ export class CheckoutComponent implements OnInit {
     // this.show = [this.title, this.venue, this.date];
     // this.tickets = [this.quantity, this.price];
 
-    this.squadService.getSquad().subscribe(
-      squadService => this.tick$ = squadService
+    this.squadService.getMockData().subscribe(
+      squadService => this.ticket$ = squadService
+    
+
+    // this.squadService.getSquad().subscribe(
+    //   squadService => this.tick$ = squadService
     );
   }
 
