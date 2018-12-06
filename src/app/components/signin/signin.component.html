@@ -1,5 +1,5 @@
 <h3>Sign In!</h3>
-<div [hidden]="submitted" style="width: 300px;">
+<div style="width: 300px;">
   <form (ngSubmit)="login()">
     <div class="form-group">
       <label for="name">Name</label>
@@ -15,7 +15,3 @@
   </form>
 </div>
  
-<div [hidden]="!submitted">
-  <h4>Wrong Info! Try logging in again.</h4>
-  <button class="btn btn-success" (click)="login()">Log In</button>
-</div>

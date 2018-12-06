@@ -107,7 +107,7 @@
 
 <h1>Products</h1>
  
-<div *ngFor="let ticket of tickets | async" style="width: 300px;">
+<div *ngFor="let ticket of tickets$ | async" style="width: 300px;">
   <tr>
     <td>{{ticket.name}}</td>
     <td></td>

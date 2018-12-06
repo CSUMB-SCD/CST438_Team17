@@ -67,7 +67,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>\r\n  <a href=\"http://localhost:4200/\">\r\n    <img src=\"assets/images/logo.png\" alt=\"Concert Tickets Logo\">\r\n  </a>\r\n  <div id=\"myButtons\">\r\n    <button mat-button routerLink=\"\">Home</button>\r\n    <button mat-button routerLink=\"/concerts\">Concerts</button>\r\n    <button mat-button routerLink=\"/checkout\">Checkout</button>\r\n    <button mat-button routerLink=\"/signin\">Sign-In</button>\r\n    <button mat-button>Logout</button>\r\n  </div>\r\n\r\n</mat-toolbar>\r\n<div>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n\r\n"
+module.exports = "<mat-toolbar>\r\n  <a href=\"http://localhost:4200/\">\r\n    <img src=\"assets/images/logo.png\" alt=\"Concert Tickets Logo\">\r\n  </a>\r\n  <div id=\"myButtons\">\r\n    <button mat-button routerLink=\"\">Home</button>\r\n    <button mat-button routerLink=\"/concerts\">Concerts</button>\r\n    <button mat-button routerLink=\"/checkout\">Checkout</button>\r\n    <button mat-button>Logout</button>\r\n  </div>\r\n\r\n</mat-toolbar>\r\n<div>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -490,7 +490,7 @@ var DetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n  <h1>Welcome! {{ checkname[0].username }} You have ${{checkname[0].funds}} !</h1>\r\n  {{ message }}\r\n    <button (click)=\"newMessage()\">New Message</button>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Random Concert</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/testConcert.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <h2>Welcome {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Random Concert</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/testConcert.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -541,6 +541,10 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
+        if (this.message === 'x') {
+            this.router.navigate(['../signin']);
+        }
+        this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
     };
     HomeComponent.prototype.newMessage = function () {
         this.app.changeMessage('Hello from Sibling');
@@ -560,26 +564,6 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/signin/siginin.ts":
-/*!**********************************************!*\
-  !*** ./src/app/components/signin/siginin.ts ***!
-  \**********************************************/
-/*! exports provided: SignIn */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignIn", function() { return SignIn; });
-var SignIn = /** @class */ (function () {
-    function SignIn() {
-    }
-    return SignIn;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/components/signin/signin.component.html":
 /*!*********************************************************!*\
   !*** ./src/app/components/signin/signin.component.html ***!
@@ -587,7 +571,7 @@ var SignIn = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Sign In!</h3>\r\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"String\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"user.username\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n \r\n<div [hidden]=\"!submitted\">\r\n  <h4>You submitted successfully!</h4>\r\n  <h1>Welcome! {{ checkname[0].username }} You have ${{checkname[0].funds}} !</h1>\r\n  <button class=\"btn btn-success\" (click)=\"login()\">Log In</button>\r\n</div>"
+module.exports = "<h3>Sign In!</h3>\r\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"string\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"user\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n \r\n<div [hidden]=\"!submitted\">\r\n  <h4>Wrong Info! Try logging in again.</h4>\r\n  <button class=\"btn btn-success\" (click)=\"login()\">Log In</button>\r\n</div>"
 
 /***/ }),
 
@@ -605,7 +589,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _signin_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./signin.service */ "./src/app/components/signin/signin.service.ts");
-/* harmony import */ var _siginin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./siginin */ "./src/app/components/signin/siginin.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -619,32 +602,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var SignInComponent = /** @class */ (function () {
     function SignInComponent(app, http, router) {
         this.app = app;
         this.http = http;
         this.router = router;
-        this.user = new _siginin__WEBPACK_IMPORTED_MODULE_4__["SignIn"];
         this.submitted = false;
     }
-    SignInComponent.prototype.login = function () {
-        var _this = this;
-        this.app.getUser(this.user.username).subscribe(function (data) { return _this.checkname = data; });
-        console.log(this.checkname);
-        if (this.user.username === this.checkname[0].username) {
-            this.submitted = true;
-            this.router.navigate(['../']);
-        }
-        else {
-            this.submitted = false;
-            // this.router.navigate(['../checkout']);
-        }
-        return false;
-    };
     SignInComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
+    };
+    SignInComponent.prototype.login = function () {
+        var _this = this;
+        this.app.getUser(this.user).subscribe(function (data) { return _this.checkname = data; });
+        //  console.log(this.checkname);
+        if (this.checkname == null) {
+            this.submitted = false;
+            alert('Invalid Login!');
+            // this.router.navigate(['../']);
+        }
+        else if (this.user === this.checkname[0].username) {
+            this.submitted = true;
+            this.app.changeMessage(this.user);
+            this.router.navigate(['../']);
+        }
+        return false;
     };
     SignInComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -688,7 +671,7 @@ var SignInService = /** @class */ (function () {
     function SignInService(http) {
         this.http = http;
         this.baseUrl = 'http://localhost:8080/';
-        this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('default message');
+        this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('x');
         this.currentMessage = this.messageSource.asObservable();
     }
     SignInService.prototype.getUser = function (username) {

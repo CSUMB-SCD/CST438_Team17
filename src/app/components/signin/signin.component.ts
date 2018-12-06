@@ -10,7 +10,7 @@ import { ObservableLike } from 'rxjs';
 })
 export class SignInComponent implements OnInit {
   user: string;
-  submitted = false;
+  makeUser: SignIn;
   checkname: Object;
   message: String;
   errorMessage: string;
@@ -25,13 +25,11 @@ export class SignInComponent implements OnInit {
 
   login() {
     this.app.getUser(this.user).subscribe(data => this.checkname = data);
-   //  console.log(this.checkname);
-     if (this.checkname == null) {
-      this.submitted = false;
+     console.log(this.checkname);
+     if (this.checkname[0] == null) {
       alert('Invalid Login!');
       // this.router.navigate(['../']);
-     } else if (this.user === this.checkname[0].username) {
-      this.submitted = true;
+     } else {
       this.app.changeMessage(this.user);
       this.router.navigate(['../']);
     }

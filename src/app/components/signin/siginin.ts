@@ -1,5 +1,5 @@
 export class SignIn {
-    _id: String;
+    _id: string;
     username: string;
     funds: Number;
 }
