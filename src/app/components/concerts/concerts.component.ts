@@ -15,6 +15,12 @@ export class ConcertsComponent implements OnInit {
   constructor(private squadService: SquaddataService) { }
 
   ngOnInit() {
+  this.app.currentMessage.subscribe(message => this.message = message);
+  if (this.message === 'x') {
+      this.router.navigate(['../signin']);
+    }
+    this.app.getUser(this.message).subscribe(data => this.checkname = data);
+    console.log(this.checkname);
     // this.getTickets();
     this.squadService.getMockData().subscribe(
       squadService => this.ticket$ = squadService

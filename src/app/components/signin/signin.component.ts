@@ -19,6 +19,7 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.app.changeMessage('x');
     this.app.currentMessage.subscribe(message => this.message = message);
   }
 
