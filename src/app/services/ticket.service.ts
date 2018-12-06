@@ -9,7 +9,7 @@ export class TicketService {
 
   // TO-DO attach heroku link to ticketssvc here
   // private baseURL = 'herokuapp.com/whatever';
-  private baseURL = 'https://team17-ticketsdb.herokuapp.com/allTickets';
+  private baseURL = 'https://team17-ticketservice.herokuapp.com/ConcertTickets';
   // allTickets: Ticket[];
 
   constructor(private http: HttpClient) { }
