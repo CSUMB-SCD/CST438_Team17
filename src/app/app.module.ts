@@ -21,6 +21,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
 // import { HttpClient } from 'selenium-webdriver/http';
 import { SignInService } from './components/signin/signin.service';
 
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatGridListModule,
     MatFormFieldModule,
+    MatCardModule,
     RouterModule.forRoot(
       appRoutes,
     )
