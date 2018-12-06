@@ -67,7 +67,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>\r\n  <a href=\"http://localhost:4200/\">\r\n    <img src=\"assets/images/logo.png\" alt=\"Concert Tickets Logo\">\r\n  </a>\r\n  <div id=\"myButtons\">\r\n    <button mat-button routerLink=\"\">Home</button>\r\n    <button mat-button routerLink=\"/concerts\">Concerts</button>\r\n    <button mat-button routerLink=\"/checkout\">Checkout</button>\r\n    <button mat-button>Logout</button>\r\n  </div>\r\n\r\n</mat-toolbar>\r\n<div>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n\r\n"
+module.exports = "<mat-toolbar>\r\n  <a href=\"http://localhost:4200/\">\r\n    <img src=\"assets/images/logo.png\" alt=\"Concert Tickets Logo\">\r\n  </a>\r\n  <div id=\"myButtons\">\r\n    <button mat-button routerLink=\"\">Home</button>\r\n    <button mat-button routerLink=\"/concerts\">Concerts</button>\r\n    <button mat-button routerLink=\"/checkout\">Checkout</button>\r\n    <button mat-button routerLink=\"/signin\">Logout</button>\r\n  </div>\r\n\r\n</mat-toolbar>\r\n<div>\r\n    <router-outlet></router-outlet>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -100,7 +100,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-// import 'rxjs/add/operator/finally';
+//import 'rxjs/add/operator/finally';
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
     }
@@ -137,17 +137,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
-/* harmony import */ var _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/signin/signin.component */ "./src/app/components/signin/signin.component.ts");
-/* harmony import */ var _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/checkout/checkout.component */ "./src/app/components/checkout/checkout.component.ts");
-/* harmony import */ var _components_concerts_concerts_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/concerts/concerts.component */ "./src/app/components/concerts/concerts.component.ts");
-/* harmony import */ var _components_thankyou_thankyou_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/thankyou/thankyou.component */ "./src/app/components/thankyou/thankyou.component.ts");
-/* harmony import */ var _components_details_details_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/details/details.component */ "./src/app/components/details/details.component.ts");
-/* harmony import */ var _components_confirmation_confirmation_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/confirmation/confirmation.component */ "./src/app/components/confirmation/confirmation.component.ts");
-/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/esm5/grid-list.es5.js");
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/esm5/form-field.es5.js");
-/* harmony import */ var _components_signin_signin_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/signin/signin.service */ "./src/app/components/signin/signin.service.ts");
+/* harmony import */ var angular_webstorage_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angular-webstorage-service */ "./node_modules/angular-webstorage-service/bundles/angular-webstorage-service.es5.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/signin/signin.component */ "./src/app/components/signin/signin.component.ts");
+/* harmony import */ var _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/checkout/checkout.component */ "./src/app/components/checkout/checkout.component.ts");
+/* harmony import */ var _components_concerts_concerts_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/concerts/concerts.component */ "./src/app/components/concerts/concerts.component.ts");
+/* harmony import */ var _components_thankyou_thankyou_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/thankyou/thankyou.component */ "./src/app/components/thankyou/thankyou.component.ts");
+/* harmony import */ var _components_details_details_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/details/details.component */ "./src/app/components/details/details.component.ts");
+/* harmony import */ var _components_confirmation_confirmation_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/confirmation/confirmation.component */ "./src/app/components/confirmation/confirmation.component.ts");
+/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/esm5/grid-list.es5.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/esm5/form-field.es5.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
+/* harmony import */ var _components_signin_signin_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/signin/signin.service */ "./src/app/components/signin/signin.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -173,15 +175,17 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 // import { HttpClient } from 'selenium-webdriver/http';
 
 var appRoutes = [
-    { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"] },
-    { path: 'concerts', component: _components_concerts_concerts_component__WEBPACK_IMPORTED_MODULE_13__["ConcertsComponent"] },
-    { path: 'checkout', component: _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_12__["CheckoutComponent"] },
-    { path: 'signin', component: _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_11__["SignInComponent"] },
-    { path: 'details', component: _components_details_details_component__WEBPACK_IMPORTED_MODULE_15__["DetailsComponent"] },
-    { path: 'confirmation', component: _components_confirmation_confirmation_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmationComponent"] }
+    { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"] },
+    { path: 'concerts', component: _components_concerts_concerts_component__WEBPACK_IMPORTED_MODULE_14__["ConcertsComponent"] },
+    { path: 'checkout', component: _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_13__["CheckoutComponent"] },
+    { path: 'signin', component: _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_12__["SignInComponent"] },
+    { path: 'details', component: _components_details_details_component__WEBPACK_IMPORTED_MODULE_16__["DetailsComponent"] },
+    { path: 'confirmation', component: _components_confirmation_confirmation_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmationComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -189,14 +193,14 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
-                _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
-                _components_concerts_concerts_component__WEBPACK_IMPORTED_MODULE_13__["ConcertsComponent"],
-                _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_11__["SignInComponent"],
-                _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_12__["CheckoutComponent"],
-                _components_details_details_component__WEBPACK_IMPORTED_MODULE_15__["DetailsComponent"],
-                _components_thankyou_thankyou_component__WEBPACK_IMPORTED_MODULE_14__["ThankyouComponent"],
-                _components_confirmation_confirmation_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmationComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"],
+                _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"],
+                _components_concerts_concerts_component__WEBPACK_IMPORTED_MODULE_14__["ConcertsComponent"],
+                _components_signin_signin_component__WEBPACK_IMPORTED_MODULE_12__["SignInComponent"],
+                _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_13__["CheckoutComponent"],
+                _components_details_details_component__WEBPACK_IMPORTED_MODULE_16__["DetailsComponent"],
+                _components_thankyou_thankyou_component__WEBPACK_IMPORTED_MODULE_15__["ThankyouComponent"],
+                _components_confirmation_confirmation_component__WEBPACK_IMPORTED_MODULE_17__["ConfirmationComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
@@ -207,12 +211,14 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatCheckboxModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatToolbarModule"],
-                _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_17__["MatGridListModule"],
-                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_18__["MatFormFieldModule"],
+                _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_18__["MatGridListModule"],
+                _angular_material_form_field__WEBPACK_IMPORTED_MODULE_19__["MatFormFieldModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_20__["MatCardModule"],
+                angular_webstorage_service__WEBPACK_IMPORTED_MODULE_9__["StorageServiceModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes)
             ],
-            providers: [_components_signin_signin_service__WEBPACK_IMPORTED_MODULE_19__["SignInService"], _services_squaddata_service__WEBPACK_IMPORTED_MODULE_0__["SquaddataService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
+            providers: [_components_signin_signin_service__WEBPACK_IMPORTED_MODULE_21__["SignInService"], _services_squaddata_service__WEBPACK_IMPORTED_MODULE_0__["SquaddataService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -229,7 +235,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n\r\n<form >\r\n\r\n</form>\r\n<br/> <br/>\r\n<div style=\"text-align:center\">\r\n  <img src=\"./../img/checkout3.png\" alt=\"Checkout Logo\" style=\"width:250px; height:100px\"/>\r\n</div>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of tick$\">\r\n    <td><img src=\"./img/generic-ticket2.png\" alt=\"Concert Logo\" style=\"width:250px; height:100px\"/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Amount of Tickets: <input size=\"1\" matInput placeholder=\"{{element.quantity}}\"> <br/> Price for each: {{element.price}}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"https://img.freepik.com/free-vector/cinema-ticket_1459-2366.jpg?size=338&ext=jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Amount of Tickets: <input size=\"1\" matInput placeholder=\"{{element.quantity}}\"> <br/> Price for each: {{element.price}}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -240,7 +246,7 @@ module.exports = "<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  text-align: center; }\n\ntable {\n  font-family: arial, sans-serif;\n  border-collapse: collapse;\n  width: 100%; }\n\ntd, th {\n  border: 1px solid #c2bcbc;\n  text-align: left;\n  padding: 8px; }\n\ntr:nth-child(even) {\n  background-color: #c7c6c6;\n  color: black; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\n#button2 {\n  display: flex;\n  justify-content: center; }\n\nspan {\n  padding: 20px; }\n"
+module.exports = "h1 {\n  text-align: center; }\n\ntable {\n  font-family: Merriweather, sans-serif;\n  border-collapse: collapse;\n  width: 100%; }\n\ntd, th {\n  border: 1px solid #c2bcbc;\n  text-align: left;\n  padding: 8px; }\n\ntr:nth-child(even) {\n  background-color: #c7c6c6;\n  color: black; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\n#button2 {\n  display: flex;\n  justify-content: center; }\n\nspan {\n  padding: 20px; }\n"
 
 /***/ }),
 
@@ -268,6 +274,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var CheckoutComponent = /** @class */ (function () {
+    // artist: string;
+    // venue: string;
+    // date: string;
+    // quantity: number;
+    // price: number;
+    // description: string;
+    // }];
     // confirmCheckout() {
     // }
     function CheckoutComponent(squadService) {
@@ -277,7 +290,10 @@ var CheckoutComponent = /** @class */ (function () {
         // this.show = [this.title, this.venue, this.date];
         // this.tickets = [this.quantity, this.price];
         var _this = this;
-        this.squadService.getSquad().subscribe(function (squadService) { return _this.tick$ = squadService; });
+        this.squadService.getMockData().subscribe(function (squadService) { return _this.ticket$ = squadService; }
+        // this.squadService.getSquad().subscribe(
+        //   squadService => this.tick$ = squadService
+        );
     };
     CheckoutComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -301,7 +317,7 @@ var CheckoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <div>\r\n    <mat-grid-list cols=\"2\" rowHeight=\"300px\" gutterSize=\"25px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 1</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 2</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 3</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n            <span>Price: </span><pre>  </pre>\r\n            <span>Amount:</span>\r\n            <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n            <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n            <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 4</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 5</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 6</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 7</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert 8</h1>\r\n        </mat-grid-tile-header>\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <div>  \r\n    <mat-card>\r\n      <mat-card-title>Eminem</mat-card-title>\r\n        <img src=\"../assets/images/eminem.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n    <mat-card>\r\n    <mat-card-title>Green Day</mat-card-title>\r\n      <img src=\"../assets/images/greenday.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n      <mat-card-actions>\r\n        <span>Price: </span>\r\n        <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n        <span>Stock: </span>\r\n        <span><button mat-button>Add to Cart</button></span>\r\n        <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n      </mat-card-actions>\r\n  </mat-card>\r\n  <br>\r\n  <mat-card>\r\n      <mat-card-title>Dillon Francis</mat-card-title>\r\n        <img src=\"../assets/images/dillon.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n  <br>\r\n  <mat-card>\r\n      <mat-card-title>Twenty One Pilots</mat-card-title>\r\n        <img src=\"../assets/images/twenty.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n    <mat-card>\r\n      <mat-card-title>The Strokes</mat-card-title>\r\n        <img src=\"../assets/images/strokes.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n    <mat-card>\r\n        <mat-card-title>Boy Pablo</mat-card-title>\r\n          <img src=\"../assets/images/boy.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n          <mat-card-actions>\r\n            <span>Price: </span>\r\n            <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n            <span>Stock: </span>\r\n            <span><button mat-button>Add to Cart</button></span>\r\n            <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n      <br>\r\n      <mat-card>\r\n          <mat-card-title>Kendrick Lamar</mat-card-title>\r\n            <img src=\"../assets/images/kendrick.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n            <mat-card-actions>\r\n              <span>Price: </span>\r\n              <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n              <span>Stock: </span>\r\n              <span><button mat-button>Add to Cart</button></span>\r\n              <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n            </mat-card-actions>\r\n        </mat-card>\r\n        <br>\r\n        <mat-card>\r\n            <mat-card-title>Drake</mat-card-title>\r\n              <img src=\"../assets/images/drake.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n              <mat-card-actions>\r\n                <span>Price: </span>\r\n                <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n                <span>Stock: </span>\r\n                <span><button mat-button>Add to Cart</button></span>\r\n                <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n              </mat-card-actions>\r\n          </mat-card>\r\n          <br>\r\n  </div>\r\n\r\n</body>\r\n\r\n<!-- <h1>Products</h1>\r\n \r\n<div *ngFor=\"let ticket of tickets$ | async\" style=\"width: 300px;\">\r\n  <tr>\r\n    <td>{{ticket.name}}</td>\r\n    <td></td>\r\n    <td></td>\r\n  </tr>\r\n</div> -->\r\n"
 
 /***/ }),
 
@@ -312,7 +328,7 @@ module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  text-align: center; }\n\nmat-grid-tile {\n  background: white; }\n\nmat-grid-tile-header {\n  justify-content: center; }\n\nmat-grid-tile-footer {\n  display: block;\n  font-size: 20px; }\n\n#head {\n  color: #fedc3d;\n  font-size: 20px; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nspan {\n  padding: 20px; }\n\ndiv {\n  position: relative;\n  padding-left: 300px;\n  padding-right: 300px; }\n"
+module.exports = "h1 {\n  text-align: center; }\n\nmat-card {\n  background-color: #fedc3d; }\n\n#head {\n  color: #fedc3d;\n  font-size: 20px; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nspan {\n  font: bold;\n  padding: 20px; }\n\ndiv {\n  position: relative;\n  padding-left: 300px;\n  padding-right: 300px; }\n"
 
 /***/ }),
 
@@ -326,7 +342,11 @@ module.exports = "h1 {\n  text-align: center; }\n\nmat-grid-tile {\n  background
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConcertsComponent", function() { return ConcertsComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angular_webstorage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-webstorage-service */ "./node_modules/angular-webstorage-service/bundles/angular-webstorage-service.es5.js");
+/* harmony import */ var _signin_signin_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../signin/signin.service */ "./src/app/components/signin/signin.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -336,19 +356,50 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
 
 var ConcertsComponent = /** @class */ (function () {
-    function ConcertsComponent() {
+    function ConcertsComponent(storage, app, http, router) {
+        this.storage = storage;
+        this.app = app;
+        this.http = http;
+        this.router = router;
+        this.data = [];
     }
     ConcertsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
+        if (this.message === 'x') {
+            this.router.navigate(['../signin']);
+        }
+        this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
+        // this.getTickets();
+    };
+    ConcertsComponent.prototype.saveInLocal = function (key, val) {
+        console.log('recieved= key:' + key + 'value:' + val);
+        this.storage.set(key, val);
+        this.data[key] = this.storage.get(key);
+    };
+    ConcertsComponent.prototype.getFromLocal = function (key) {
+        console.log('recieved= key:' + key);
+        this.data[key] = this.storage.get(key);
+        console.log(this.data);
     };
     ConcertsComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-concerts',
             template: __webpack_require__(/*! ./concerts.component.html */ "./src/app/components/concerts/concerts.component.html"),
             styles: [__webpack_require__(/*! ./concerts.component.scss */ "./src/app/components/concerts/concerts.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"])(angular_webstorage_service__WEBPACK_IMPORTED_MODULE_3__["LOCAL_STORAGE"])),
+        __metadata("design:paramtypes", [angular_webstorage_service__WEBPACK_IMPORTED_MODULE_3__["WebStorageService"],
+            _signin_signin_service__WEBPACK_IMPORTED_MODULE_4__["SignInService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"]])
     ], ConcertsComponent);
     return ConcertsComponent;
 }());
@@ -427,7 +478,7 @@ var ConfirmationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/testConcert.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <span>Price: </span><pre>  </pre>\r\n          <span>Amount:</span>\r\n          <input size=\"1\" matInput placeholder=\"#\"><pre> </pre>\r\n          <span><button mat-button>Add to Cart</button></span><pre> </pre>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n  <div>\r\n    <h2>Concert Info:</h2>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>Eminem</mat-card-title>\r\n          <img src=\"../assets/images/eminem.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info:</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: </span>\r\n            <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n            <span>Stock: </span>\r\n            <span><button mat-button>Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -438,7 +489,7 @@ module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  text-align: center; }\n\nmat-grid-tile {\n  background: white; }\n\nmat-grid-tile-header {\n  justify-content: center; }\n\nmat-grid-tile-footer {\n  justify-content: center;\n  display: block;\n  font-size: 20px; }\n\n#head {\n  color: #fedc3d;\n  font-size: 20px; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nspan {\n  padding: 20px; }\n\ndiv {\n  position: relative;\n  padding-left: 400px;\n  padding-right: 400px; }\n"
+module.exports = "h1 {\n  text-align: center; }\n\nmat-card {\n  background-color: #fedc3d; }\n\n#head {\n  color: #fedc3d;\n  font-size: 20px; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nspan {\n  padding: 20px; }\n\ndiv {\n  position: relative;\n  padding-left: 300px;\n  padding-right: 300px; }\n"
 
 /***/ }),
 
@@ -490,7 +541,7 @@ var DetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <h2>Welcome {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Random Concert</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/testConcert.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert of the Day</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/strokes.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -501,7 +552,7 @@ module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-grid-tile {\n  background: white; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nmat-grid-tile-header {\n  justify-content: center;\n  background-color: black; }\n\nmat-grid-tile-footer {\n  justify-content: center; }\n\n#head {\n  color: #fedc3d;\n  font-size: 30px; }\n\n#foot {\n  color: black;\n  font-size: 20px; }\n\na:link {\n  color: black;\n  text-decoration: none; }\n\na:visited {\n  color: #fedc3d;\n  text-decoration: none; }\n\na:hover {\n  color: #fedc3d;\n  text-decoration: none; }\n\na:active {\n  color: black;\n  text-decoration: none; }\n\n#concert {\n  position: relative;\n  padding-left: 400px;\n  padding-right: 400px; }\n\nh1 {\n  text-align: center; }\n\nimg {\n  max-width: 100%; }\n\n.container {\n  height: 100%;\n  overflow: hidden; }\n\n.img-container {\n  position: absolute;\n  left: 0;\n  opacity: 0;\n  height: auto !important;\n  background-size: cover;\n  background-position: center;\n  will-change: opacity;\n  transition: opacity .3s;\n  cursor: pointer; }\n\n.slide-button:hover, .slide-button-select {\n  width: 64px !important;\n  background-color: white !important;\n  pointer-events: none;\n  transition: background-color 0.4s, width 4s cubic-bezier(0.19, 1, 0.22, 1) !important; }\n\n.slide-button {\n  width: 30px;\n  height: 4px;\n  background-color: rgba(255, 255, 255, 0.5);\n  cursor: pointer;\n  position: absolute; }\n\n.slider {\n  position: absolute;\n  top: 50%;\n  right: 80px;\n  opacity: 1;\n  min-width: 30px; }\n\n.slide-button-parent-container {\n  position: relative;\n  margin: 22px 0;\n  min-height: 4px; }\n\n.select-box {\n  min-height: 10px; }\n\n.text-container {\n  height: 100vh;\n  justify-content: center;\n  display: flex;\n  align-items: center;\n  flex-direction: column; }\n\n.page-text {\n  min-height: 373px;\n  width: 50%;\n  height: 100%;\n  opacity: 0;\n  font-weight: 300;\n  font-size: 90px;\n  color: white; }\n\n.selected {\n  opacity: 1;\n  transition: 1s; }\n"
+module.exports = "mat-grid-tile {\n  background: white; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nmat-grid-tile-header {\n  justify-content: center;\n  background-color: black; }\n\nmat-grid-tile-footer {\n  justify-content: center; }\n\n#head {\n  color: #fedc3d;\n  font-size: 30px; }\n\n#foot {\n  color: black;\n  font-size: 20px; }\n\na:link {\n  color: black;\n  text-decoration: none; }\n\na:visited {\n  color: #fedc3d;\n  text-decoration: none; }\n\na:hover {\n  color: #fedc3d;\n  text-decoration: none; }\n\na:active {\n  color: black;\n  text-decoration: none; }\n\n#concert {\n  position: relative;\n  padding-left: 400px;\n  padding-right: 400px; }\n\nh1, h2 {\n  text-align: center; }\n\nimg {\n  max-width: 100%; }\n\n.container {\n  height: 100%;\n  overflow: hidden; }\n\n.img-container {\n  position: absolute;\n  left: 0;\n  opacity: 0;\n  height: auto !important;\n  background-size: cover;\n  background-position: center;\n  will-change: opacity;\n  transition: opacity .3s;\n  cursor: pointer; }\n\n.slide-button:hover, .slide-button-select {\n  width: 64px !important;\n  background-color: white !important;\n  pointer-events: none;\n  transition: background-color 0.4s, width 4s cubic-bezier(0.19, 1, 0.22, 1) !important; }\n\n.slide-button {\n  width: 30px;\n  height: 4px;\n  background-color: rgba(255, 255, 255, 0.5);\n  cursor: pointer;\n  position: absolute; }\n\n.slider {\n  position: absolute;\n  top: 50%;\n  right: 80px;\n  opacity: 1;\n  min-width: 30px; }\n\n.slide-button-parent-container {\n  position: relative;\n  margin: 22px 0;\n  min-height: 4px; }\n\n.select-box {\n  min-height: 10px; }\n\n.text-container {\n  height: 100vh;\n  justify-content: center;\n  display: flex;\n  align-items: center;\n  flex-direction: column; }\n\n.page-text {\n  min-height: 373px;\n  width: 50%;\n  height: 100%;\n  opacity: 0;\n  font-weight: 300;\n  font-size: 90px;\n  color: white; }\n\n.selected {\n  opacity: 1;\n  transition: 1s; }\n"
 
 /***/ }),
 
@@ -571,7 +622,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Sign In!</h3>\r\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"string\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"user\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n \r\n<div [hidden]=\"!submitted\">\r\n  <h4>Wrong Info! Try logging in again.</h4>\r\n  <button class=\"btn btn-success\" (click)=\"login()\">Log In</button>\r\n</div>"
+module.exports = "<h3>Sign In!</h3>\r\n<div style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"string\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"user\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n "
 
 /***/ }),
 
@@ -607,23 +658,21 @@ var SignInComponent = /** @class */ (function () {
         this.app = app;
         this.http = http;
         this.router = router;
-        this.submitted = false;
     }
     SignInComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.app.changeMessage('x');
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
     };
     SignInComponent.prototype.login = function () {
         var _this = this;
         this.app.getUser(this.user).subscribe(function (data) { return _this.checkname = data; });
-        //  console.log(this.checkname);
-        if (this.checkname == null) {
-            this.submitted = false;
+        console.log(this.checkname);
+        if (this.checkname[0] == null) {
             alert('Invalid Login!');
             // this.router.navigate(['../']);
         }
-        else if (this.user === this.checkname[0].username) {
-            this.submitted = true;
+        else {
             this.app.changeMessage(this.user);
             this.router.navigate(['../']);
         }
@@ -670,7 +719,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var SignInService = /** @class */ (function () {
     function SignInService(http) {
         this.http = http;
-        this.baseUrl = 'http://localhost:8080/';
+        this.baseUrl = 'https://team17userdb.herokuapp.com/';
         this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('x');
         this.currentMessage = this.messageSource.asObservable();
     }
@@ -787,6 +836,9 @@ var SquaddataService = /** @class */ (function () {
     }
     SquaddataService.prototype.getSquad = function () {
         return this.httpClient.get('https://api.myjson.com/bins/14g5si');
+    };
+    SquaddataService.prototype.getMockData = function () {
+        return this.httpClient.get('../assets/dbMock.json');
     };
     SquaddataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
