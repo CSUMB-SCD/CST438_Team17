@@ -18,4 +18,8 @@ export class SquaddataService {
     return this.httpClient.get<Array<SquadMember>>(
       'https://api.myjson.com/bins/14g5si');
   }
+  getMockData()  {
+    return this.httpClient.get<Array<SquadMember>>(
+      '../assets/dbMock.json');
+  }
 }
