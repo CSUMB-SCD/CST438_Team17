@@ -35,7 +35,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     // this.show = [this.title, this.venue, this.date];
     // this.tickets = [this.quantity, this.price];
-    this.app.currentMessage.subscribe(message => this.message = message);
+    // this.app.currentMessage.subscribe(message => this.message = message);
   if (this.message === 'x') {
       this.router.navigate(['../signin']);
     }
@@ -44,6 +44,7 @@ export class CheckoutComponent implements OnInit {
 
     this.squadService.getMockData().subscribe(
       squadService => this.ticket$ = squadService
+
     // this.squadService.getSquad().subscribe(
     //   squadService => this.tick$ = squadService
     );
