@@ -1,4 +1,7 @@
+import { Ticket } from './../../models/ticket';
+import { TicketService } from './../../services/ticket.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-details',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  ourTicket: Ticket;
 
-  constructor() { }
+  constructor(private ticketService: TicketService) { }
 
   ngOnInit() {
+    this.ourTicket = this.ticketService.getMyTicket();
   }
+
+
+  public addCart(product: Ticket) {
+    this.ticketService.addTicket(product);
+  }
+
 
 }

@@ -14,93 +14,9 @@
           <span>Amount: <input size="1" matInput placeholder="#"></span>
           <span>Stock: {{ element.quantity }}</span>
           <span><button mat-button (click)="addCart(element)">Add to Cart</button></span>
-          <span><button mat-button routerLink="/details">Details</button></span>
+          <span><button mat-button (click)="addTicket(element)" routerLink="/details">Details</button></span>
         </mat-card-actions>
     </mat-card>
-    <!-- <mat-card>
-    <mat-card-title>{{ element.artist }}</mat-card-title>
-      <img src="../assets/images/greenday.jpg" alt="Test Concert" width="200" height="150">
-      <mat-card-actions>
-        <span>Price: </span>
-        <span>Amount: <input size="1" matInput placeholder="#"></span>
-        <span>Stock: </span>
-        <span><button mat-button>Add to Cart</button></span>
-        <span><button mat-button routerLink="/details">Details</button></span>
-      </mat-card-actions>
-  </mat-card>
-  <br>
-  <mat-card>
-      <mat-card-title>Dillon Francis</mat-card-title>
-        <img src="../assets/images/dillon.jpg" alt="Test Concert" width="200" height="150">
-        <mat-card-actions>
-          <span>Price: </span>
-          <span>Amount: <input size="1" matInput placeholder="#"></span>
-          <span>Stock: </span>
-          <span><button mat-button>Add to Cart</button></span>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-card-actions>
-    </mat-card>
-  <br>
-  <mat-card>
-      <mat-card-title>Twenty One Pilots</mat-card-title>
-        <img src="../assets/images/twenty.jpg" alt="Test Concert" width="200" height="150">
-        <mat-card-actions>
-          <span>Price: </span>
-          <span>Amount: <input size="1" matInput placeholder="#"></span>
-          <span>Stock: </span>
-          <span><button mat-button>Add to Cart</button></span>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-card-actions>
-    </mat-card>
-    <br>
-    <mat-card>
-      <mat-card-title>The Strokes</mat-card-title>
-        <img src="../assets/images/strokes.jpg" alt="Test Concert" width="200" height="150">
-        <mat-card-actions>
-          <span>Price: </span>
-          <span>Amount: <input size="1" matInput placeholder="#"></span>
-          <span>Stock: </span>
-          <span><button mat-button>Add to Cart</button></span>
-          <span><button mat-button routerLink="/details">Details</button></span>
-        </mat-card-actions>
-    </mat-card>
-    <br>
-    <mat-card>
-        <mat-card-title>Boy Pablo</mat-card-title>
-          <img src="../assets/images/boy.jpg" alt="Test Concert" width="200" height="150">
-          <mat-card-actions>
-            <span>Price: </span>
-            <span>Amount: <input size="1" matInput placeholder="#"></span>
-            <span>Stock: </span>
-            <span><button mat-button>Add to Cart</button></span>
-            <span><button mat-button routerLink="/details">Details</button></span>
-          </mat-card-actions>
-      </mat-card>
-      <br>
-      <mat-card>
-          <mat-card-title>Kendrick Lamar</mat-card-title>
-            <img src="../assets/images/kendrick.jpg" alt="Test Concert" width="200" height="150">
-            <mat-card-actions>
-              <span>Price: </span>
-              <span>Amount: <input size="1" matInput placeholder="#"></span>
-              <span>Stock: </span>
-              <span><button mat-button>Add to Cart</button></span>
-              <span><button mat-button routerLink="/details">Details</button></span>
-            </mat-card-actions>
-        </mat-card>
-        <br>
-        <mat-card>
-            <mat-card-title>Drake</mat-card-title>
-              <img src="../assets/images/drake.jpg" alt="Test Concert" width="200" height="150">
-              <mat-card-actions>
-                <span>Price: </span>
-                <span>Amount: <input size="1" matInput placeholder="#"></span>
-                <span>Stock: </span>
-                <span><button mat-button>Add to Cart</button></span>
-                <span><button mat-button routerLink="/details">Details</button></span>
-              </mat-card-actions>
-          </mat-card>
-          <br> -->
   </div>
 </body>
 

@@ -48,4 +48,8 @@ export class ConcertsComponent implements OnInit {
     this.ticketService.addTicket(product);
   }
 
+  public addTicket(product: Ticket) {
+    this.ticketService.oneTicket(product);
+  }
+
 }

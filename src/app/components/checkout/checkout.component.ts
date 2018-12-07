@@ -36,7 +36,6 @@ export class CheckoutComponent implements OnInit {
     private http: HttpClient, private router: Router, private ticketService: TicketService) {
       this.cart$ = ticketService.getTickets();
       this.ticket$ = ticketService.getTickets();
-      console.log(this.cart$);
     }
 
   ngOnInit() {

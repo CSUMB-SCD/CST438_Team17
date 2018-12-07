@@ -6,16 +6,16 @@
   <h1>Details</h1>
   <div>
     <mat-card>
-        <mat-card-title>Eminem</mat-card-title>
-          <img src="../assets/images/eminem.jpg" alt="Test Concert" width="650" height="400">
+        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>
+          <img src="../assets/images/{{ ourTicket.artist }}.jpg" alt="Concert Image" width="650" height="400">
           <span>
-            <h2>Concert Info:</h2>
+            <h2>Concert Info: {{ ourTicket.description }}</h2>
           </span>
           <mat-card-actions>
-            <span>Price: </span>
-            <span>Amount: <input size="1" matInput placeholder="#"></span>
-            <span>Stock: </span>
-            <span><button mat-button>Add to Cart</button></span>
+            <span>Price: {{ ourTicket.price }}</span>
+            <span>Amount: <input size="1" matInput placeholder="{{ ourTicket.quantity }}"></span>
+            <span>Stock: {{ ourTicket.quantity }}</span>
+            <span><button mat-button (click)="addCart(ourTicket)">Add to Cart</button></span>
           </mat-card-actions>
       </mat-card>
   </div>
