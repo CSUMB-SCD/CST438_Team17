@@ -1,7 +1,7 @@
 [
   {
     "artist": "Eminem",
-    "quantity": "50",
+    "stock": "50",
     "img_src": "www.something.com",
     "description": "This concert is going to be an epic time, don't forget to bring your friends!",
     "venue": "Radio City Music Hall",
@@ -10,7 +10,7 @@
   },
   {
     "artist": "Green Day",
-    "quantity": "50",
+    "stock": "50",
     "img_src": "www.somethingElse.com",
     "description": "This concert is going to be timeless, don't forget to bring your friends!",
     "venue": "The Wiltern",
@@ -19,7 +19,7 @@
   },
   {
     "artist": "Dillon Francis",
-    "quantity": "50",
+    "stock": "50",
     "img_src": "www.somethingElse.com",
     "description": "This concert is going to be timeless, don't forget to bring your friends!",
     "venue": "First Avenue",
@@ -28,7 +28,7 @@
   },
   {
     "artist": "Twenty One Pilots",
-    "quantity": "50",
+    "stock": "50",
     "img_src": "www.something.com",
     "description": "This concert is going to be an epic time, don't forget to bring your friends!",
     "venue": "Red Rocks Amphitheatre",
@@ -37,7 +37,7 @@
   },
   {
     "artist": "The Strokes",
-    "quantity": "11",
+    "stock": "11",
     "img_src": "www.something.com",
     "description": "This concert is going to be an epic time, don't forget to bring your friends!",
     "venue": "Beacon Theatre",
@@ -46,7 +46,7 @@
   },
   {
     "artist": "Boy Pablo",
-    "quantity": "50",
+    "stock": "50",
     "img_src": "www.somethingElse.com",
     "description": "This concert is going to be timeless, don't forget to bring your friends!",
     "venue": "The Joint",
@@ -55,7 +55,7 @@
   },
   {
     "artist": "Kendrick Lamar",
-    "quantity": "50",
+    "stock": "50",
     "img_src": "www.somethingDark.com",
     "description": "This concert is going to be an unforgettable, don't forget to bring your friends",
     "venue": "SOB's",
@@ -64,7 +64,7 @@
   },
   {
     "artist": "Drake",
-    "quantity": "50",
+    "stock": "50",
     "img_src": "www.something.com",
     "description": "This concert is going to be an epic time, don't forget to bring your friends!",
     "venue": "Showbox at the Market",

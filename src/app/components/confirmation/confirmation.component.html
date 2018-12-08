@@ -1,8 +1,19 @@
 <h1>Confirmation Page</h1>
 <br>
 <br>
-<h3>Your was completed!</h3>
-<h3>Enjoy your Concert</h3>
+<div> 
+    <mat-card *ngFor="let element of cart$">
+      <mat-card-title>{{ element.artist }}</mat-card-title>
+        <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
+        <mat-card-actions>
+          <span>Price: {{ element.price }}</span>
+          <span>Quantity: {{ element.quantity }}</span>
+          
+        </mat-card-actions>
+    </mat-card>
+  </div>
+<h3>Your order as been completed!</h3>
+<h3>Enjoy your concert</h3>
 <div>
     <span><button mat-button routerLink="/confirmation">Cancel Purchase</button></span>
 </div>
