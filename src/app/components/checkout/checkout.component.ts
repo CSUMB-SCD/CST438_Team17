@@ -14,7 +14,7 @@ import { TicketService } from './../../services/ticket.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  //cart$: Ticket[]; 
+  // cart$: Ticket[];
   ticket$:  Ticket[];
   user: SignIn;
   checkname: Object;
@@ -22,7 +22,7 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private squadService: SquaddataService, private app: SignInService,
     private http: HttpClient, private router: Router, private ticketService: TicketService) {
-      this.cart$ = ticketService.getTickets();
+      // this.cart$ = ticketService.getTickets();
       this.ticket$ = ticketService.getTickets();
     }
 
