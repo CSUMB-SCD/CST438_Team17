@@ -14,24 +14,12 @@ import { TicketService } from './../../services/ticket.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  tick$: {};
   cart$: Ticket[];
   ticket$:  Ticket[];
   user: SignIn;
   checkname: Object;
   message: String;
-  //
-  // artist: string;
-  // venue: string;
-  // date: string;
-  // quantity: number;
-  // price: number;
-  // description: string;
-  // }];
 
-  // confirmCheckout() {
-
-  // }
   constructor(private squadService: SquaddataService, private app: SignInService,
     private http: HttpClient, private router: Router, private ticketService: TicketService) {
       this.cart$ = ticketService.getTickets();
@@ -39,17 +27,14 @@ export class CheckoutComponent implements OnInit {
     }
 
   ngOnInit() {
-    // this.show = [this.title, this.venue, this.date];
-    // this.tickets = [this.quantity, this.price];
-     this.app.currentMessage.subscribe(message => this.message = message);
-  if (this.message === 'x') {
-      this.router.navigate(['../signin']);
-    }
-    this.app.getUser(this.message).subscribe(data => this.checkname = data);
-    console.log(this.checkname);
 
-    // this.squadService.getMockData().subscribe(
-    //   squadService => this.ticket$ = squadService
+    this.app.currentMessage.subscribe(message => this.message = message);
+      if (this.message === 'x') {
+        this.router.navigate(['../signin']);
+      }
+    this.app.getUser(this.message).subscribe(data => this.checkname = data);
+
+    console.log(this.checkname);
 
     console.log(this.cart$);
   }
