@@ -6,9 +6,4 @@ export class Ticket {
     quantity: number;
     price: number;
     description: string;
-    inCart: number;
-
-    constructor() {
-        this.inCart = 0;
-    }
 }
