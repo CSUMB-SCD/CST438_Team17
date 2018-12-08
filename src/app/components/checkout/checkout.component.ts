@@ -14,7 +14,7 @@ import { TicketService } from './../../services/ticket.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  cart$: Ticket[];
+  //cart$: Ticket[]; 
   ticket$:  Ticket[];
   user: SignIn;
   checkname: Object;
