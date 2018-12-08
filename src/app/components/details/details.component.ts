@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
   ourTicket: Ticket;
+  amount: number;
 
   constructor(private ticketService: TicketService) { }
 
@@ -18,8 +19,8 @@ export class DetailsComponent implements OnInit {
   }
 
 
-  public addCart(product: Ticket) {
-    this.ticketService.addTicket(product);
+  public addCart(product: Ticket, amount: number) {
+    this.ticketService.addTicket(product, amount);
   }
 
 

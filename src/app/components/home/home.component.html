@@ -4,6 +4,9 @@
 
 <body>
   <h1>Welcome to Concert Tickets!</h1>
+  <div *ngIf="message ==='x'">
+  <button mat-button routerLink="/signin">Sign In To Shop!</button>
+</div> 
   <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>
   <div id="concert">
     <mat-grid-list cols="1" rowHeight="500px">

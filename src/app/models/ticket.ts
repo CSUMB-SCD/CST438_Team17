@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 export class Ticket {
     artist: string;
     venue: string;

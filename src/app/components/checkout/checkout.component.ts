@@ -36,7 +36,7 @@ export class CheckoutComponent implements OnInit {
 
     console.log(this.checkname);
 
-    console.log(this.cart$);
+    console.log(this.ticket$);
   }
 
 }

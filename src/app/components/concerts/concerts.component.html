@@ -11,9 +11,9 @@
         <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
         <mat-card-actions>
           <span>Price: {{ element.price }}</span>
-          <span>Amount: <input size="1" matInput placeholder="#"></span>
+          <span>Amount: <input type=number required [(ngModel)]="amount" matInput placeholder="1"></span>
           <span>Stock: {{ element.quantity }}</span>
-          <span><button mat-button (click)="addCart(element)">Add to Cart</button></span>
+          <span><button mat-button (click)="addCart(element, amount)">Add to Cart</button></span>
           <span><button mat-button (click)="addTicket(element)" routerLink="/details">Details</button></span>
         </mat-card-actions>
     </mat-card>
