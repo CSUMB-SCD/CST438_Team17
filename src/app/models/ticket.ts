@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 export class Ticket {
     artist: string;
     venue: string;
@@ -5,4 +6,9 @@ export class Ticket {
     quantity: number;
     price: number;
     description: string;
+    inCart: number;
+
+    constructor() {
+        this.inCart = 0;
+    }
 }

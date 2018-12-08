@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class TicketService {
   private tickets: Ticket[];
   private myTicket: Ticket;
+  index: number;
   constructor() {
     this.tickets = [];
   }
@@ -18,8 +19,14 @@ export class TicketService {
     return this.tickets;
   }
 
-  addTicket(newTick: Ticket) {
-    this.tickets.push(newTick);
+  addTicket(newTick: Ticket, amount: number) {
+    if (this.tickets.includes(newTick)) {
+      this.index = this.tickets.indexOf(newTick);
+    //  this.tickets[this.index].inCart = this.tickets[this.index].inCart + amount;
+    } else {
+    //  newTick.inCart += amount;
+      this.tickets.push(newTick);
+    }
   }
 
   // TODO::DETIALS
