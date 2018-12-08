@@ -1,3 +1,4 @@
+import { Ticket } from './../models/ticket';
 import { SquadMember } from '../models/squad-member';
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
@@ -23,7 +24,7 @@ export class SquaddataService {
       'https://api.myjson.com/bins/14g5si');
   }
   getMockData()  {
-    return this.httpClient.get<Array<SquadMember>>(
+    return this.httpClient.get<Array<Ticket>>(
       '../assets/dbMock.json');
   }
 }
