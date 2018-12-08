@@ -235,7 +235,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"https://img.freepik.com/free-vector/cinema-ticket_1459-2366.jpg?size=338&ext=jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Amount of Tickets: <input size=\"1\" matInput placeholder=\"{{element.quantity}}\"> <br/> Price for each: {{ element.price }}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"https://img.freepik.com/free-vector/cinema-ticket_1459-2366.jpg?size=338&ext=jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Tickets In Cart: <input type= number matInput placeholder=\"{{element.inCart}}\"> <br/> Price for each: {{ element.price }}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -313,7 +313,7 @@ var CheckoutComponent = /** @class */ (function () {
         console.log(this.checkname);
         // this.squadService.getMockData().subscribe(
         //   squadService => this.ticket$ = squadService
-        console.log(this.cart$);
+        console.log(this.ticket$);
     };
     CheckoutComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -338,7 +338,7 @@ var CheckoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div> \r\n    <mat-card *ngFor=\"let element of ticket$\">\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: {{ element.quantity }}</span>\r\n          <span><button mat-button (click)=\"addCart(element)\">Add to Cart</button></span>\r\n          <span><button mat-button (click)=\"addTicket(element)\" routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n  </div>\r\n</body>\r\n\r\n<!-- <h1>Products</h1>\r\n \r\n<div *ngFor=\"let ticket of tickets$ | async\" style=\"width: 300px;\">\r\n  <tr>\r\n    <td>{{ticket.name}}</td>\r\n    <td></td>\r\n    <td></td>\r\n  </tr>\r\n</div> -->\r\n"
+module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div> \r\n    <mat-card *ngFor=\"let element of ticket$\">\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Amount: <input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"1\"></span>\r\n          <span>Stock: {{ element.quantity }}</span>\r\n          <span><button mat-button (click)=\"addCart(element, amount)\">Add to Cart</button></span>\r\n          <span><button mat-button (click)=\"addTicket(element)\" routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n  </div>\r\n</body>\r\n\r\n<!-- <h1>Products</h1>\r\n \r\n<div *ngFor=\"let ticket of tickets$ | async\" style=\"width: 300px;\">\r\n  <tr>\r\n    <td>{{ticket.name}}</td>\r\n    <td></td>\r\n    <td></td>\r\n  </tr>\r\n</div> -->\r\n"
 
 /***/ }),
 
@@ -404,14 +404,19 @@ var ConcertsComponent = /** @class */ (function () {
         var _this = this;
         // this.getTickets();
         this.squadService.getMockData().subscribe(function (squadService) { return _this.ticket$ = squadService; });
+        /*
+        for (let i = 0; i < this.ticket$.length; i++) {
+          this.ticket$[i].inCart = 0;
+        }
+        */
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
         if (this.message === 'x') {
             this.router.navigate(['../signin']);
         }
         this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
     };
-    ConcertsComponent.prototype.addCart = function (product) {
-        this.ticketService.addTicket(product);
+    ConcertsComponent.prototype.addCart = function (product, amount) {
+        this.ticketService.addTicket(product, amount);
     };
     ConcertsComponent.prototype.addTicket = function (product) {
         this.ticketService.oneTicket(product);
@@ -504,7 +509,7 @@ var ConfirmationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>\r\n          <img src=\"../assets/images/{{ ourTicket.artist }}.jpg\" alt=\"Concert Image\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info: {{ ourTicket.description }}</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: {{ ourTicket.price }}</span>\r\n            <span>Amount: <input size=\"1\" matInput placeholder=\"{{ ourTicket.quantity }}\"></span>\r\n            <span>Stock: {{ ourTicket.quantity }}</span>\r\n            <span><button mat-button (click)=\"addCart(ourTicket)\">Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>\r\n          <img src=\"../assets/images/{{ ourTicket.artist }}.jpg\" alt=\"Concert Image\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info: {{ ourTicket.description }}</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: {{ ourTicket.price }}</span>\r\n            <span>Amount: <input input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"1\"></span>\r\n            <span>Stock: {{ ourTicket.quantity }}</span>\r\n            <span><button mat-button (click)=\"addCart(ourTicket)\">Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -549,8 +554,8 @@ var DetailsComponent = /** @class */ (function () {
     DetailsComponent.prototype.ngOnInit = function () {
         this.ourTicket = this.ticketService.getMyTicket();
     };
-    DetailsComponent.prototype.addCart = function (product) {
-        this.ticketService.addTicket(product);
+    DetailsComponent.prototype.addCart = function (product, amount) {
+        this.ticketService.addTicket(product, amount);
     };
     DetailsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -574,7 +579,7 @@ var DetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert of the Day</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/Boy Pablo.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <div *ngIf=\"message ==='x'\">\r\n  <button mat-button routerLink=\"/signin\">Sign In To Shop!</button>\r\n</div> \r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert of the Day</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/Boy Pablo.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -625,9 +630,11 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
+        /*
         if (this.message === 'x') {
-            this.router.navigate(['../signin']);
+          this.router.navigate(['../signin']);
         }
+        */
         this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
     };
     HomeComponent.prototype.newMessage = function () {
@@ -918,8 +925,15 @@ var TicketService = /** @class */ (function () {
     TicketService.prototype.getTickets = function () {
         return this.tickets;
     };
-    TicketService.prototype.addTicket = function (newTick) {
-        this.tickets.push(newTick);
+    TicketService.prototype.addTicket = function (newTick, amount) {
+        if (this.tickets.includes(newTick)) {
+            this.index = this.tickets.indexOf(newTick);
+            //  this.tickets[this.index].inCart = this.tickets[this.index].inCart + amount;
+        }
+        else {
+            //  newTick.inCart += amount;
+            this.tickets.push(newTick);
+        }
     };
     // TODO::DETIALS
     TicketService.prototype.oneTicket = function (newTick) {
