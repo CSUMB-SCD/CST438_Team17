@@ -235,7 +235,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"https://img.freepik.com/free-vector/cinema-ticket_1459-2366.jpg?size=338&ext=jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Amount of Tickets: <input size=\"1\" matInput placeholder=\"{{element.quantity}}\"> <br/> Price for each: {{element.price}}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"https://img.freepik.com/free-vector/cinema-ticket_1459-2366.jpg?size=338&ext=jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Amount of Tickets: <input size=\"1\" matInput placeholder=\"{{element.quantity}}\"> <br/> Price for each: {{ element.price }}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -246,7 +246,7 @@ module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?fam
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  text-align: center; }\n\ntable {\n  font-family: Merriweather, sans-serif;\n  border-collapse: collapse;\n  width: 100%; }\n\ntd, th {\n  border: 1px solid #c2bcbc;\n  text-align: left;\n  padding: 8px; }\n\ntr:nth-child(even) {\n  background-color: #c7c6c6;\n  color: black; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\n#button2 {\n  display: flex;\n  justify-content: center; }\n\nspan {\n  padding: 20px; }\n"
+module.exports = "h1, h2 {\n  text-align: center; }\n\ntable {\n  font-family: Merriweather, sans-serif;\n  border-collapse: collapse;\n  width: 100%; }\n\ntd, th {\n  border: 1px solid #c2bcbc;\n  text-align: left;\n  padding: 8px; }\n\ntr:nth-child(even) {\n  background-color: #c7c6c6;\n  color: black; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\n#button2 {\n  display: flex;\n  justify-content: center; }\n\nspan {\n  padding: 20px; }\n"
 
 /***/ }),
 
@@ -260,8 +260,12 @@ module.exports = "h1 {\n  text-align: center; }\n\ntable {\n  font-family: Merri
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckoutComponent", function() { return CheckoutComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_squaddata_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/squaddata.service */ "./src/app/services/squaddata.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_squaddata_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/squaddata.service */ "./src/app/services/squaddata.service.ts");
+/* harmony import */ var _signin_signin_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../signin/signin.service */ "./src/app/components/signin/signin.service.ts");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../services/ticket.service */ "./src/app/services/ticket.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -273,7 +277,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
 var CheckoutComponent = /** @class */ (function () {
+    //
     // artist: string;
     // venue: string;
     // date: string;
@@ -283,25 +292,37 @@ var CheckoutComponent = /** @class */ (function () {
     // }];
     // confirmCheckout() {
     // }
-    function CheckoutComponent(squadService) {
+    function CheckoutComponent(squadService, app, http, router, ticketService) {
         this.squadService = squadService;
+        this.app = app;
+        this.http = http;
+        this.router = router;
+        this.ticketService = ticketService;
+        this.cart$ = ticketService.getTickets();
+        this.ticket$ = ticketService.getTickets();
     }
     CheckoutComponent.prototype.ngOnInit = function () {
+        var _this = this;
         // this.show = [this.title, this.venue, this.date];
         // this.tickets = [this.quantity, this.price];
-        var _this = this;
-        this.squadService.getMockData().subscribe(function (squadService) { return _this.ticket$ = squadService; }
-        // this.squadService.getSquad().subscribe(
-        //   squadService => this.tick$ = squadService
-        );
+        this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
+        if (this.message === 'x') {
+            this.router.navigate(['../signin']);
+        }
+        this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
+        console.log(this.checkname);
+        // this.squadService.getMockData().subscribe(
+        //   squadService => this.ticket$ = squadService
+        console.log(this.cart$);
     };
     CheckoutComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
             selector: 'app-checkout',
             template: __webpack_require__(/*! ./checkout.component.html */ "./src/app/components/checkout/checkout.component.html"),
             styles: [__webpack_require__(/*! ./checkout.component.scss */ "./src/app/components/checkout/checkout.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_squaddata_service__WEBPACK_IMPORTED_MODULE_1__["SquaddataService"]])
+        __metadata("design:paramtypes", [_services_squaddata_service__WEBPACK_IMPORTED_MODULE_3__["SquaddataService"], _signin_signin_service__WEBPACK_IMPORTED_MODULE_4__["SignInService"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"], _services_ticket_service__WEBPACK_IMPORTED_MODULE_5__["TicketService"]])
     ], CheckoutComponent);
     return CheckoutComponent;
 }());
@@ -317,7 +338,7 @@ var CheckoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <div>  \r\n    <mat-card>\r\n      <mat-card-title>Eminem</mat-card-title>\r\n        <img src=\"../assets/images/eminem.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n    <mat-card>\r\n    <mat-card-title>Green Day</mat-card-title>\r\n      <img src=\"../assets/images/greenday.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n      <mat-card-actions>\r\n        <span>Price: </span>\r\n        <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n        <span>Stock: </span>\r\n        <span><button mat-button>Add to Cart</button></span>\r\n        <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n      </mat-card-actions>\r\n  </mat-card>\r\n  <br>\r\n  <mat-card>\r\n      <mat-card-title>Dillon Francis</mat-card-title>\r\n        <img src=\"../assets/images/dillon.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n  <br>\r\n  <mat-card>\r\n      <mat-card-title>Twenty One Pilots</mat-card-title>\r\n        <img src=\"../assets/images/twenty.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n    <mat-card>\r\n      <mat-card-title>The Strokes</mat-card-title>\r\n        <img src=\"../assets/images/strokes.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: </span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: </span>\r\n          <span><button mat-button>Add to Cart</button></span>\r\n          <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n    <mat-card>\r\n        <mat-card-title>Boy Pablo</mat-card-title>\r\n          <img src=\"../assets/images/boy.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n          <mat-card-actions>\r\n            <span>Price: </span>\r\n            <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n            <span>Stock: </span>\r\n            <span><button mat-button>Add to Cart</button></span>\r\n            <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n      <br>\r\n      <mat-card>\r\n          <mat-card-title>Kendrick Lamar</mat-card-title>\r\n            <img src=\"../assets/images/kendrick.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n            <mat-card-actions>\r\n              <span>Price: </span>\r\n              <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n              <span>Stock: </span>\r\n              <span><button mat-button>Add to Cart</button></span>\r\n              <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n            </mat-card-actions>\r\n        </mat-card>\r\n        <br>\r\n        <mat-card>\r\n            <mat-card-title>Drake</mat-card-title>\r\n              <img src=\"../assets/images/drake.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n              <mat-card-actions>\r\n                <span>Price: </span>\r\n                <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n                <span>Stock: </span>\r\n                <span><button mat-button>Add to Cart</button></span>\r\n                <span><button mat-button routerLink=\"/details\">Details</button></span>\r\n              </mat-card-actions>\r\n          </mat-card>\r\n          <br>\r\n  </div>\r\n\r\n</body>\r\n\r\n<!-- <h1>Products</h1>\r\n \r\n<div *ngFor=\"let ticket of tickets$ | async\" style=\"width: 300px;\">\r\n  <tr>\r\n    <td>{{ticket.name}}</td>\r\n    <td></td>\r\n    <td></td>\r\n  </tr>\r\n</div> -->\r\n"
+module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div> \r\n    <mat-card *ngFor=\"let element of ticket$\">\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n          <span>Stock: {{ element.quantity }}</span>\r\n          <span><button mat-button (click)=\"addCart(element)\">Add to Cart</button></span>\r\n          <span><button mat-button (click)=\"addTicket(element)\" routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n  </div>\r\n</body>\r\n\r\n<!-- <h1>Products</h1>\r\n \r\n<div *ngFor=\"let ticket of tickets$ | async\" style=\"width: 300px;\">\r\n  <tr>\r\n    <td>{{ticket.name}}</td>\r\n    <td></td>\r\n    <td></td>\r\n  </tr>\r\n</div> -->\r\n"
 
 /***/ }),
 
@@ -328,7 +349,7 @@ module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  text-align: center; }\n\nmat-card {\n  background-color: #fedc3d; }\n\n#head {\n  color: #fedc3d;\n  font-size: 20px; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nspan {\n  font: bold;\n  padding: 20px; }\n\ndiv {\n  position: relative;\n  padding-left: 300px;\n  padding-right: 300px; }\n"
+module.exports = "h1, h2 {\n  text-align: center; }\n\nmat-card {\n  background-color: #fedc3d; }\n\n#head {\n  color: #fedc3d;\n  font-size: 20px; }\n\nbutton {\n  background-color: black;\n  color: #fedc3d; }\n\nspan {\n  font: bold;\n  padding: 20px; }\n\ndiv {\n  position: relative;\n  padding-left: 300px;\n  padding-right: 300px; }\n"
 
 /***/ }),
 
@@ -342,11 +363,13 @@ module.exports = "h1 {\n  text-align: center; }\n\nmat-card {\n  background-colo
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConcertsComponent", function() { return ConcertsComponent; });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../services/ticket.service */ "./src/app/services/ticket.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var angular_webstorage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-webstorage-service */ "./node_modules/angular-webstorage-service/bundles/angular-webstorage-service.es5.js");
 /* harmony import */ var _signin_signin_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../signin/signin.service */ "./src/app/components/signin/signin.service.ts");
+/* harmony import */ var _services_squaddata_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/squaddata.service */ "./src/app/services/squaddata.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -364,32 +387,34 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 
+
+
 var ConcertsComponent = /** @class */ (function () {
-    function ConcertsComponent(storage, app, http, router) {
+    // constructor(private squadService: SquaddataService, private ticketService: TicketService) { }
+    function ConcertsComponent(storage, app, http, router, squadService, ticketService) {
         this.storage = storage;
         this.app = app;
         this.http = http;
         this.router = router;
+        this.squadService = squadService;
+        this.ticketService = ticketService;
         this.data = [];
     }
     ConcertsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // this.getTickets();
+        this.squadService.getMockData().subscribe(function (squadService) { return _this.ticket$ = squadService; });
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
         if (this.message === 'x') {
             this.router.navigate(['../signin']);
         }
         this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
-        // this.getTickets();
     };
-    ConcertsComponent.prototype.saveInLocal = function (key, val) {
-        console.log('recieved= key:' + key + 'value:' + val);
-        this.storage.set(key, val);
-        this.data[key] = this.storage.get(key);
+    ConcertsComponent.prototype.addCart = function (product) {
+        this.ticketService.addTicket(product);
     };
-    ConcertsComponent.prototype.getFromLocal = function (key) {
-        console.log('recieved= key:' + key);
-        this.data[key] = this.storage.get(key);
-        console.log(this.data);
+    ConcertsComponent.prototype.addTicket = function (product) {
+        this.ticketService.oneTicket(product);
     };
     ConcertsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -399,7 +424,8 @@ var ConcertsComponent = /** @class */ (function () {
         }),
         __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"])(angular_webstorage_service__WEBPACK_IMPORTED_MODULE_3__["LOCAL_STORAGE"])),
         __metadata("design:paramtypes", [angular_webstorage_service__WEBPACK_IMPORTED_MODULE_3__["WebStorageService"],
-            _signin_signin_service__WEBPACK_IMPORTED_MODULE_4__["SignInService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"]])
+            _signin_signin_service__WEBPACK_IMPORTED_MODULE_4__["SignInService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _services_squaddata_service__WEBPACK_IMPORTED_MODULE_5__["SquaddataService"], _services_ticket_service__WEBPACK_IMPORTED_MODULE_0__["TicketService"]])
     ], ConcertsComponent);
     return ConcertsComponent;
 }());
@@ -478,7 +504,7 @@ var ConfirmationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>Eminem</mat-card-title>\r\n          <img src=\"../assets/images/eminem.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info:</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: </span>\r\n            <span>Amount: <input size=\"1\" matInput placeholder=\"#\"></span>\r\n            <span>Stock: </span>\r\n            <span><button mat-button>Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>\r\n          <img src=\"../assets/images/{{ ourTicket.artist }}.jpg\" alt=\"Concert Image\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info: {{ ourTicket.description }}</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: {{ ourTicket.price }}</span>\r\n            <span>Amount: <input size=\"1\" matInput placeholder=\"{{ ourTicket.quantity }}\"></span>\r\n            <span>Stock: {{ ourTicket.quantity }}</span>\r\n            <span><button mat-button (click)=\"addCart(ourTicket)\">Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -503,7 +529,8 @@ module.exports = "h1 {\n  text-align: center; }\n\nmat-card {\n  background-colo
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetailsComponent", function() { return DetailsComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_ticket_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../services/ticket.service */ "./src/app/services/ticket.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -514,18 +541,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DetailsComponent = /** @class */ (function () {
-    function DetailsComponent() {
+    function DetailsComponent(ticketService) {
+        this.ticketService = ticketService;
     }
     DetailsComponent.prototype.ngOnInit = function () {
+        this.ourTicket = this.ticketService.getMyTicket();
+    };
+    DetailsComponent.prototype.addCart = function (product) {
+        this.ticketService.addTicket(product);
     };
     DetailsComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-details',
             template: __webpack_require__(/*! ./details.component.html */ "./src/app/components/details/details.component.html"),
             styles: [__webpack_require__(/*! ./details.component.scss */ "./src/app/components/details/details.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_ticket_service__WEBPACK_IMPORTED_MODULE_0__["TicketService"]])
     ], DetailsComponent);
     return DetailsComponent;
 }());
@@ -541,7 +574,7 @@ var DetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert of the Day</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/strokes.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert of the Day</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/Boy Pablo.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -817,6 +850,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SquaddataService", function() { return SquaddataService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -828,9 +862,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var SquaddataService = /** @class */ (function () {
     function SquaddataService(httpClient) {
         this.httpClient = httpClient;
+        this.cartSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('x');
+        this.currentMessage = this.cartSource.asObservable();
         console.log('squad is working');
         this.URL = '';
     }
@@ -847,6 +884,57 @@ var SquaddataService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], SquaddataService);
     return SquaddataService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/ticket.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/ticket.service.ts ***!
+  \********************************************/
+/*! exports provided: TicketService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TicketService", function() { return TicketService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TicketService = /** @class */ (function () {
+    function TicketService() {
+        this.tickets = [];
+    }
+    TicketService.prototype.getTickets = function () {
+        return this.tickets;
+    };
+    TicketService.prototype.addTicket = function (newTick) {
+        this.tickets.push(newTick);
+    };
+    // TODO::DETIALS
+    TicketService.prototype.oneTicket = function (newTick) {
+        this.myTicket = newTick;
+    };
+    TicketService.prototype.getMyTicket = function () {
+        return this.myTicket;
+    };
+    TicketService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], TicketService);
+    return TicketService;
 }());
 
 

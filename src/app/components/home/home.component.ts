@@ -15,16 +15,18 @@ import { SignIn } from '../signin/siginin';
 export class HomeComponent implements OnInit {
   user: SignIn;
   checkname: Object;
-  message: String;
+  message: string;
 
   constructor(private app: SignInService, private http: HttpClient, private router: Router) {
   }
 
   ngOnInit() {
     this.app.currentMessage.subscribe(message => this.message = message);
+    /*
     if (this.message === 'x') {
       this.router.navigate(['../signin']);
     }
+    */
     this.app.getUser(this.message).subscribe(data => this.checkname = data);
   }
 
