@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SignIn } from './siginin';
 import { BehaviorSubject } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class SignInService {
 
   constructor(private http: HttpClient) {
     this.user.username = '';
-    this.user.funds = 500;
+    this.user.funds = 0;
   }
 
   getUser(username: String): Observable<Object> {
@@ -30,6 +31,18 @@ export class SignInService {
 
   passUser(): SignIn {
     return this.user;
+  }
+
+  takeMoney(total: number): boolean {
+    console.log(total);
+    if (this.user.funds < total) {
+      alert('Insufficent funds! Get back to work shorty');
+      return false;
+    } else {
+      this.user.funds -= total;
+      console.log(this.user.funds);
+      return true;
+    }
   }
 
   changeMessage(message: string) {

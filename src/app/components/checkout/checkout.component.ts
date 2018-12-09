@@ -18,10 +18,12 @@ export class CheckoutComponent implements OnInit {
   user: SignIn;
   checkname: Object;
   message: String;
+  total: number;
 
   constructor(private squadService: SquaddataService, private app: SignInService,
     private http: HttpClient, private router: Router, private ticketService: TicketService) {
       this.ticket$ = ticketService.getTickets();
+      this.total = 0;
     }
 
   ngOnInit() {
@@ -31,10 +33,19 @@ export class CheckoutComponent implements OnInit {
         this.router.navigate(['../signin']);
       }
       this.user = this.app.passUser();
+      for (let i = 0; i < this.ticket$.length; i++) {
+        this.total += +this.ticket$[i].price + 0;
+      }
+      console.log(this.total);
 
-    console.log(this.checkname);
+  }
 
-    console.log(this.ticket$);
+  verifyPurchase() {
+    if (this.app.takeMoney(this.total)) {
+      this.router.navigate(['/confirmation']);
+    }
+    this.user = this.app.passUser();
+    console.log(this.user);
   }
 
 }

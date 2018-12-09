@@ -18,12 +18,12 @@ export class HomeComponent implements OnInit {
   message: string;
 
   constructor(private app: SignInService, private http: HttpClient, private router: Router) {
-    this.checkname = [];
   }
 
   ngOnInit() {
     this.app.currentMessage.subscribe(message => this.message = message);
     this.user = this.app.passUser();
+    console.log(this.user);
     /*
     if (this.message === 'x') {
       this.router.navigate(['../signin']);

@@ -24,7 +24,8 @@
 </td>
   </tr>
   </table>
+  <h3>Your total: {{ total }}</h3>
   <div id="button2">
-    <span><button mat-button routerLink="/confirmation">Confirm Purchase</button></span>
+      <span><button mat-button (click)="verifyPurchase()">Confirm Purchase</button></span>
   </div>
 <router-outlet></router-outlet>
