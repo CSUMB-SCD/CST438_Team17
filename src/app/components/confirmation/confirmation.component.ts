@@ -17,4 +17,8 @@ export class ConfirmationComponent implements OnInit {
   ngOnInit() {
   }
 
+  resetCart() {
+    this.ticketService.resetTickets();
+  }
+
 }
