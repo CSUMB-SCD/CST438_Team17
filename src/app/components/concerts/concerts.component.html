@@ -10,10 +10,9 @@
         <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
         <mat-card-actions>
           <span>Price: {{ element.price }}</span>
-          {{ stock(5) }}
           <span>Amount:
             <select>
-              <option *ngFor="let option of options">{{option}}</option>
+              <option *ngFor="let option of createRange( element.stock)" value = {{option}}>{{option}}</option>
             </select>
           </span>
           <!-- {{ resetStock() }} -->
