@@ -60,6 +60,10 @@ export class TicketService {
     return true;
   }
 
+  resetTickets() {
+    this.tickets = [];
+  }
+
 
 
   // TO-DO attach heroku link to ticketssvc here

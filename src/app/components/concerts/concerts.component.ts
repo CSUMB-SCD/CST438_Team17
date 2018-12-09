@@ -28,7 +28,8 @@ export class ConcertsComponent implements OnInit {
   message: String;
   ticket$: Ticket[];
   cart$: TicketService[];
-  amount: number [];
+  amount: number[];
+  options: any = [[]];
   // constructor(private squadService: SquaddataService, private ticketService: TicketService) { }
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,
   private app: SignInService, private http: HttpClient, private router: Router,
@@ -45,6 +46,17 @@ export class ConcertsComponent implements OnInit {
     }
     this.user = this.app.passUser();
   }
+
+  public createRange(num: number) {
+    this.options = [];
+    for (let i = 1; i <= num; i++) {
+      this.options.push(i);
+    }
+    return this.options;
+  }
+
+
+
 
   public addCart(product: Ticket, amount: number) {
     this.ticketService.addTicket(product, amount);
