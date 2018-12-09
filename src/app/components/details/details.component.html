@@ -14,7 +14,7 @@
           <mat-card-actions>
             <span>Price: {{ ourTicket.price }}</span>
             <span>Amount: <input input type=number required [(ngModel)]="amount" matInput placeholder="1"></span>
-            <span>Stock: {{ ourTicket.quantity }}</span>
+            <span>Stock: {{ ourTicket.stock }}</span>
             <span><button mat-button (click)="addCart(ourTicket,amount)">Add to Cart</button></span>
           </mat-card-actions>
       </mat-card>

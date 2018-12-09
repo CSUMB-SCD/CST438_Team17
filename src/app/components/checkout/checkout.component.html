@@ -5,7 +5,7 @@
     <h1>Home Page</h1>
 </head>
 <h1>Checkout</h1>
-<h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>
+<h2>Hello {{ user.username }}, You have ${{ user.funds}}!</h2>
 <br/> <br/> <br/>
 <table>
 
@@ -20,7 +20,7 @@
       <td> {{ element.venue }} </td>
       <td>{{ element.date }}</td>
 
-      <td>Tickets In Cart: <input type= number matInput placeholder="{{element.quantity}}"> <br/> Price for each: {{ element.price }}
+      <td>Tickets In Cart: <input type= number matInput placeholder="{{element.stock}}"> <br/> Price for each: {{ element.price }}
 </td>
   </tr>
   </table>

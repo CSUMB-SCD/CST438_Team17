@@ -9,7 +9,7 @@ import { ObservableLike } from 'rxjs';
   templateUrl: './signin.component.html'
 })
 export class SignInComponent implements OnInit {
-  user: string;
+  myUser: string;
   makeUser: SignIn;
   checkname: Object;
   message: String;
@@ -25,16 +25,29 @@ export class SignInComponent implements OnInit {
 
 
   login() {
-    this.app.getUser(this.user).subscribe(data => this.checkname = data);
+    this.app.getUser(this.myUser).subscribe(data => this.checkname = data);
      console.log(this.checkname);
      if (this.checkname[0] == null) {
       alert('Invalid Login!');
       // this.router.navigate(['../']);
      } else {
-      this.app.changeMessage(this.user);
+      this.app.changeMessage(this.myUser);
+      this.app.makeUser(this.checkname[0].username, this.checkname[0].funds);
+      this.makeUser = this.app.passUser();
+      console.log(this.myUser);
       this.router.navigate(['../']);
     }
      return false;
+  }
+
+  setUp() {
+    /*
+    this.app.getUser(this.message).subscribe(data => this.checkname = data);
+    console.log(this.checkname);
+    */
+    this.app.makeUser(this.checkname[0].username, this.checkname[0].funds);
+    this.makeUser = this.app.passUser();
+    console.log(this.myUser);
   }
 
 
