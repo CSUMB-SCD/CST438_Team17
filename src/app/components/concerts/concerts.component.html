@@ -1,7 +1,6 @@
 <head>
   <h1>Concerts Page</h1>
 </head>
-
 <body>
   <h1>Concerts</h1>
   <h2>Hello {{ user.username }}, You have ${{ user.funds}}!</h2>
@@ -11,7 +10,13 @@
         <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
         <mat-card-actions>
           <span>Price: {{ element.price }}</span>
-          <span>Amount: <input type=number required [(ngModel)]="amount" matInput placeholder="0"></span>
+          {{ stock(5) }}
+          <span>Amount:
+            <select>
+              <option *ngFor="let option of options">{{option}}</option>
+            </select>
+          </span>
+          <!-- {{ resetStock() }} -->
           <span>Stock: {{ element.stock }}</span>
           <span><button mat-button (click)="addCart(element, amount)">Add to Cart</button></span>
           <span><button mat-button (click)="addTicket(element)" routerLink="/details">Details</button></span>
