@@ -1,22 +1,30 @@
 <h1>Sign In</h1>
-<pre>
 
-</pre>
+<br/>
 
-<div class="container">
-  <form (ngSubmit)="login()">
-  <label for="name"><b>Username  </b></label>
-  <input type="string" placeholder="Enter Username" class="form-control" id="username" required [(ngModel)]="user" name="name">
-  
-
-  <br/>
-
-  <label for="psw"><b>Password   </b></label>
-  <input type="password" placeholder="Enter Password" class="form-control" id="password"  name="password" required>
-      
-  <br/>
-
-  <button type="submit" class="submit">Login</button>
-  </form>
-</div>
+<mat-card class="signIn">
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="form">
+      <table class="signIn" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="user">Username
+            <input matInput placeholder="Username" [(ngModel)]="user" name="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+        <td><mat-form-field class="pass">Password
+        <input matInput placeholder="Password" type="password" name="password" required> 
+        </mat-form-field></td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" color="yellow">Login</button>
+  </mat-card-actions>
+</mat-card>
  
