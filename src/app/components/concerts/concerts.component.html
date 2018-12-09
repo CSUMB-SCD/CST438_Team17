@@ -3,22 +3,22 @@
 </head>
 <body>
   <h1>Concerts</h1>
-  <h2>Hello {{ user.username }}, You have ${{ user.funds}}!</h2>
+  <h2>Hello {{ user.username }}, You have ${{ user.funds }}!</h2>
   <div *ngFor="let element of ticket$"> 
     <mat-card>
       <mat-card-title>{{ element.artist }}</mat-card-title>
         <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
         <mat-card-actions>
           <span>Price: {{ element.price }}</span>
-          <!-- <span>Amount:
-            <select>
+          <span>Amount:
+            <select id="{{ element.artist }}">
               <option *ngFor="let option of createRange(element.stock);" value = {{option}}>{{option}}</option>
             </select>
-          </span> -->
-          <!-- {{ resetStock() }} -->
+          </span>
+          <!-- {{ resetStock() }}
           <span>Stock: {{ element.stock }}</span>
-          <span>Amount: <input type=number required [(ngModel)]="amount" matInput placeholder="0"></span>
-          <span><button mat-button (click)="addCart(element, amount)">Add to Cart</button></span>
+          <span>Amount: <input type=number required [(ngModel)]="amount" matInput placeholder="0"></span> -->
+          <span><button mat-button (click)="addCart(element, amount)" >Add to Cart</button></span>
           <span><button mat-button (click)="addTicket(element)" routerLink="/details">Details</button></span>
         </mat-card-actions>
     </mat-card>

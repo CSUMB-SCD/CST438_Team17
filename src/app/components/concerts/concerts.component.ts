@@ -56,8 +56,12 @@ export class ConcertsComponent implements OnInit {
   }
 
   public addCart(product: Ticket, amount: number) {
+    const inputElement = <HTMLInputElement> document.getElementById(product.artist);
+    console.log(inputElement.value);
+    amount = Number(inputElement.value);
     this.ticketService.addTicket(product, amount);
     this.ticketService.pushCart(amount);
+
   }
 
   public addTicket(product: Ticket) {
