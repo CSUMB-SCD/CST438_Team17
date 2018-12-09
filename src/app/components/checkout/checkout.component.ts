@@ -30,7 +30,7 @@ export class CheckoutComponent implements OnInit {
       if (this.message === 'x') {
         this.router.navigate(['../signin']);
       }
-    this.app.getUser(this.message).subscribe(data => this.checkname = data);
+      this.user = this.app.passUser();
 
     console.log(this.checkname);
 

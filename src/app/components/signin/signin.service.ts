@@ -10,14 +10,26 @@ import { BehaviorSubject } from 'rxjs';
 export class SignInService {
 
   private baseUrl = 'https://team17userdb.herokuapp.com/';
-  user: SignIn;
+  private user = new SignIn;
   private messageSource = new BehaviorSubject('x');
   currentMessage = this.messageSource.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.user.username = '';
+    this.user.funds = 500;
+  }
 
   getUser(username: String): Observable<Object> {
     return this.http.get(`${this.baseUrl}signin/${username}`);
+  }
+
+  makeUser(username: string, funds: number) {
+    this.user.username = username;
+    this.user.funds = funds;
+  }
+
+  passUser(): SignIn {
+    return this.user;
   }
 
   changeMessage(message: string) {

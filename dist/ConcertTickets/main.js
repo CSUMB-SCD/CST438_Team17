@@ -235,7 +235,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"https://img.freepik.com/free-vector/cinema-ticket_1459-2366.jpg?size=338&ext=jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Tickets In Cart: <input type= number matInput placeholder=\"{{element.inCart}}\"> <br/> Price for each: {{ element.price }}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Tickets In Cart: <input type= number matInput placeholder=\"{{element.quantity}}\"> <br/> Price for each: {{ element.price }}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -282,37 +282,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var CheckoutComponent = /** @class */ (function () {
-    //
-    // artist: string;
-    // venue: string;
-    // date: string;
-    // quantity: number;
-    // price: number;
-    // description: string;
-    // }];
-    // confirmCheckout() {
-    // }
     function CheckoutComponent(squadService, app, http, router, ticketService) {
         this.squadService = squadService;
         this.app = app;
         this.http = http;
         this.router = router;
         this.ticketService = ticketService;
-        this.cart$ = ticketService.getTickets();
         this.ticket$ = ticketService.getTickets();
     }
     CheckoutComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // this.show = [this.title, this.venue, this.date];
-        // this.tickets = [this.quantity, this.price];
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
         if (this.message === 'x') {
             this.router.navigate(['../signin']);
         }
         this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
         console.log(this.checkname);
-        // this.squadService.getMockData().subscribe(
-        //   squadService => this.ticket$ = squadService
         console.log(this.ticket$);
     };
     CheckoutComponent = __decorate([
@@ -338,7 +323,7 @@ var CheckoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div> \r\n    <mat-card *ngFor=\"let element of ticket$\">\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Amount: <input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"1\"></span>\r\n          <span>Stock: {{ element.quantity }}</span>\r\n          <span><button mat-button (click)=\"addCart(element, amount)\">Add to Cart</button></span>\r\n          <span><button mat-button (click)=\"addTicket(element)\" routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n  </div>\r\n</body>\r\n\r\n<!-- <h1>Products</h1>\r\n \r\n<div *ngFor=\"let ticket of tickets$ | async\" style=\"width: 300px;\">\r\n  <tr>\r\n    <td>{{ticket.name}}</td>\r\n    <td></td>\r\n    <td></td>\r\n  </tr>\r\n</div> -->\r\n"
+module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div *ngFor=\"let element of ticket$\"> \r\n    <mat-card>\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Amount: <input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"0\"></span>\r\n          <span>Stock: {{ element.stock }}</span>\r\n          <span><button mat-button (click)=\"addCart(element, amount)\">Add to Cart</button></span>\r\n          <span><button mat-button (click)=\"addTicket(element)\" routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n  </div>\r\n</body>\r\n"
 
 /***/ }),
 
@@ -446,7 +431,7 @@ var ConcertsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Confirmation Page</h1>\r\n<br>\r\n<br>\r\n<h3>Your was completed!</h3>\r\n<h3>Enjoy your Concert</h3>\r\n<div>\r\n    <span><button mat-button routerLink=\"/confirmation\">Cancel Purchase</button></span>\r\n</div>\r\n"
+module.exports = "<h1>Confirmation Page</h1>\r\n<br>\r\n<br>\r\n<div *ngFor=\"let element of cart$\"> \r\n    <mat-card >\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Quantity: {{ element.quantity }}</span>  \r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n</div>\r\n<h3>Your order as been completed!</h3>\r\n<h3>Enjoy your concert</h3>\r\n<div>\r\n    <span><button mat-button routerLink=\"/checkout\">Cancel Purchase</button></span>\r\n    <!-- Include a function to delete stock and minus money amount on customer -->\r\n    <span><button id=\"confirm\" mat-button routerLink=\"/\">Confirm</button></span>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -457,7 +442,7 @@ module.exports = "<h1>Confirmation Page</h1>\r\n<br>\r\n<br>\r\n<h3>Your was com
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  text-align: center; }\n\nh3 {\n  text-align: center; }\n\nbutton {\n  background-color: red;\n  color: black; }\n\nspan {\n  padding: 20px; }\n\ndiv {\n  text-align: center; }\n"
+module.exports = "h1 {\n  text-align: center; }\n\nh3 {\n  text-align: center; }\n\nbutton {\n  background-color: red;\n  color: White; }\n\n#confirm {\n  background-color: green;\n  color: White; }\n\nmat-card {\n  background-color: #fedc3d; }\n\nspan {\n  padding: 20px; }\n\ndiv {\n  text-align: center; }\n"
 
 /***/ }),
 
@@ -472,6 +457,7 @@ module.exports = "h1 {\n  text-align: center; }\n\nh3 {\n  text-align: center; }
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmationComponent", function() { return ConfirmationComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_ticket_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/ticket.service */ "./src/app/services/ticket.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -482,8 +468,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ConfirmationComponent = /** @class */ (function () {
-    function ConfirmationComponent() {
+    function ConfirmationComponent(ticketService) {
+        this.ticketService = ticketService;
+        this.cart$ = ticketService.getTickets();
     }
     ConfirmationComponent.prototype.ngOnInit = function () {
     };
@@ -493,7 +482,7 @@ var ConfirmationComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./confirmation.component.html */ "./src/app/components/confirmation/confirmation.component.html"),
             styles: [__webpack_require__(/*! ./confirmation.component.scss */ "./src/app/components/confirmation/confirmation.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [src_app_services_ticket_service__WEBPACK_IMPORTED_MODULE_1__["TicketService"]])
     ], ConfirmationComponent);
     return ConfirmationComponent;
 }());
@@ -509,7 +498,7 @@ var ConfirmationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>\r\n          <img src=\"../assets/images/{{ ourTicket.artist }}.jpg\" alt=\"Concert Image\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info: {{ ourTicket.description }}</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: {{ ourTicket.price }}</span>\r\n            <span>Amount: <input input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"1\"></span>\r\n            <span>Stock: {{ ourTicket.quantity }}</span>\r\n            <span><button mat-button (click)=\"addCart(ourTicket)\">Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>\r\n          <img src=\"../assets/images/{{ ourTicket.artist }}.jpg\" alt=\"Concert Image\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info: {{ ourTicket.description }}</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: {{ ourTicket.price }}</span>\r\n            <span>Amount: <input input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"1\"></span>\r\n            <span>Stock: {{ ourTicket.quantity }}</span>\r\n            <span><button mat-button (click)=\"addCart(ourTicket,amount)\">Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -579,7 +568,7 @@ var DetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <div *ngIf=\"message ==='x'\">\r\n  <button mat-button routerLink=\"/signin\">Sign In To Shop!</button>\r\n</div> \r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert of the Day</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/Boy Pablo.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Home Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Welcome to Concert Tickets!</h1>\r\n  <div *ngIf=\"message ==='x'\">\r\n  <button mat-button routerLink=\"/signin\">Sign In To Shop!</button>\r\n</div> \r\n  <h2>Hello {{ user.username }}, You have ${{ user.funds}}!</h2>\r\n  <div id=\"concert\">\r\n    <mat-grid-list cols=\"1\" rowHeight=\"500px\">\r\n      <mat-grid-tile>\r\n        <mat-grid-tile-header>\r\n          <h1 id=\"head\">Concert of the Day</h1>\r\n        </mat-grid-tile-header>\r\n        <img src=\"../assets/images/Boy Pablo.jpg\" alt=\"Test Concert\" width=\"650\" height=\"400\">\r\n        <mat-grid-tile-footer>\r\n          <h1 id=\"foot\">\r\n            <a routerLink=\"/concerts\">Checkout More Concerts!</a>\r\n          </h1>\r\n        </mat-grid-tile-footer>\r\n      </mat-grid-tile>\r\n    </mat-grid-list>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -626,16 +615,17 @@ var HomeComponent = /** @class */ (function () {
         this.app = app;
         this.http = http;
         this.router = router;
+        this.checkname = [];
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
+        this.user = this.app.passUser();
         /*
         if (this.message === 'x') {
           this.router.navigate(['../signin']);
         }
         */
-        this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
     };
     HomeComponent.prototype.newMessage = function () {
         this.app.changeMessage('Hello from Sibling');
@@ -655,6 +645,26 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/signin/siginin.ts":
+/*!**********************************************!*\
+  !*** ./src/app/components/signin/siginin.ts ***!
+  \**********************************************/
+/*! exports provided: SignIn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignIn", function() { return SignIn; });
+var SignIn = /** @class */ (function () {
+    function SignIn() {
+    }
+    return SignIn;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/signin/signin.component.html":
 /*!*********************************************************!*\
   !*** ./src/app/components/signin/signin.component.html ***!
@@ -662,7 +672,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Sign In!</h3>\r\n<div style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"string\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"user\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n "
+module.exports = "<h3>Sign In!</h3>\r\n<div style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"string\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"myUser\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n "
 
 /***/ }),
 
@@ -706,17 +716,29 @@ var SignInComponent = /** @class */ (function () {
     };
     SignInComponent.prototype.login = function () {
         var _this = this;
-        this.app.getUser(this.user).subscribe(function (data) { return _this.checkname = data; });
+        this.app.getUser(this.myUser).subscribe(function (data) { return _this.checkname = data; });
         console.log(this.checkname);
         if (this.checkname[0] == null) {
             alert('Invalid Login!');
             // this.router.navigate(['../']);
         }
         else {
-            this.app.changeMessage(this.user);
+            this.app.changeMessage(this.myUser);
+            this.app.makeUser(this.checkname[0].username, this.checkname[0].funds);
+            this.makeUser = this.app.passUser();
+            console.log(this.myUser);
             this.router.navigate(['../']);
         }
         return false;
+    };
+    SignInComponent.prototype.setUp = function () {
+        /*
+        this.app.getUser(this.message).subscribe(data => this.checkname = data);
+        console.log(this.checkname);
+        */
+        this.app.makeUser(this.checkname[0].username, this.checkname[0].funds);
+        this.makeUser = this.app.passUser();
+        console.log(this.myUser);
     };
     SignInComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -743,7 +765,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInService", function() { return SignInService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _siginin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./siginin */ "./src/app/components/signin/siginin.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -756,15 +779,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SignInService = /** @class */ (function () {
     function SignInService(http) {
         this.http = http;
         this.baseUrl = 'https://team17userdb.herokuapp.com/';
-        this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('x');
+        this.user = new _siginin__WEBPACK_IMPORTED_MODULE_2__["SignIn"];
+        this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]('x');
         this.currentMessage = this.messageSource.asObservable();
+        this.user.username = '';
+        this.user.funds = 500;
     }
     SignInService.prototype.getUser = function (username) {
         return this.http.get(this.baseUrl + "signin/" + username);
+    };
+    SignInService.prototype.makeUser = function (username, funds) {
+        this.user.username = username;
+        this.user.funds = funds;
+    };
+    SignInService.prototype.passUser = function () {
+        return this.user;
     };
     SignInService.prototype.changeMessage = function (message) {
         this.messageSource.next(message);

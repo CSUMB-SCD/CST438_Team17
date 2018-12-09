@@ -47,7 +47,7 @@ export class ConcertsComponent implements OnInit {
     if (this.message === 'x') {
       this.router.navigate(['../signin']);
     }
-    this.app.getUser(this.message).subscribe(data => this.checkname = data);
+    this.user = this.app.passUser();
   }
 
   public addCart(product: Ticket, amount: number) {
