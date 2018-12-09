@@ -10,9 +10,10 @@ import { Injectable } from '@angular/core';
 export class TicketService {
   private tickets: Ticket[];
   private myTicket: Ticket;
-  index: number;
+  amount: number [];
   constructor() {
     this.tickets = [];
+    this.amount = [];
   }
 
   getTickets(): Ticket[] {
@@ -21,7 +22,6 @@ export class TicketService {
 
   addTicket(newTick: Ticket, amount: number) {
     if (this.tickets.includes(newTick)) {
-      this.index = this.tickets.indexOf(newTick);
     //  this.tickets[this.index].inCart = this.tickets[this.index].inCart + amount;
     } else {
     //  newTick.inCart += amount;
@@ -36,6 +36,28 @@ export class TicketService {
 
   getMyTicket(): Ticket {
     return this.myTicket;
+  }
+
+  public pushCart(amount: number) {
+    this.amount.push(amount);
+  }
+
+  public getCart(): number[] {
+    return this.amount;
+  }
+
+  takeStock(amount: number[]): boolean {
+    for (let i = 0; i < amount.length; i++) {
+      if (amount[i] > this.tickets[i].stock) {
+        return false;
+      }
+    }
+
+    for (let j = 0; j < amount.length; j++) {
+      this.tickets[j].stock -= amount[j];
+    }
+
+    return true;
   }
 
 

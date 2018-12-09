@@ -12,6 +12,7 @@ import { SignInService } from '../signin/signin.service';
 import { SignIn } from '../signin/siginin';
 import { SquaddataService } from '../../services/squaddata.service';
 import { Router } from '@angular/router';
+import { throwMatDuplicatedDrawerError } from '@angular/material';
 
 @Component({
   selector: 'app-concerts',
@@ -27,7 +28,7 @@ export class ConcertsComponent implements OnInit {
   message: String;
   ticket$: Ticket[];
   cart$: TicketService[];
-  amount: number;
+  amount: number [];
   // constructor(private squadService: SquaddataService, private ticketService: TicketService) { }
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,
   private app: SignInService, private http: HttpClient, private router: Router,
@@ -38,11 +39,6 @@ export class ConcertsComponent implements OnInit {
     this.squadService.getMockData().subscribe(
       squadService => this.ticket$ = squadService
     );
-    /*
-    for (let i = 0; i < this.ticket$.length; i++) {
-      this.ticket$[i].inCart = 0;
-    }
-    */
     this.app.currentMessage.subscribe(message => this.message = message);
     if (this.message === 'x') {
       this.router.navigate(['../signin']);
@@ -52,6 +48,7 @@ export class ConcertsComponent implements OnInit {
 
   public addCart(product: Ticket, amount: number) {
     this.ticketService.addTicket(product, amount);
+    this.ticketService.pushCart(amount);
   }
 
   public addTicket(product: Ticket) {

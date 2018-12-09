@@ -12,7 +12,7 @@
     <th colspan="3">Items in Cart</th>
     <th colspan="2">Amount of Items</th>
 
-  <tr *ngFor= "let element of ticket$">
+  <tr *ngFor= "let element of ticket$, let i = index">
     <td><img src="../assets/images/{{ element.artist }}.jpg" alt="Concert Logo" style="width:150px; height:100px"/>
       <br/><br/>
        {{ element.artist }}</td>
@@ -20,7 +20,7 @@
       <td> {{ element.venue }} </td>
       <td>{{ element.date }}</td>
 
-      <td>Tickets In Cart: <input type= number matInput placeholder="{{element.stock}}"> <br/> Price for each: {{ element.price }}
+      <td>Tickets In Cart: <input type= number matInput placeholder="{{amount[i]}}"> <br/> Price for each: {{ element.price }}
 </td>
   </tr>
   </table>
