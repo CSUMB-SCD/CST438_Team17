@@ -1,17 +1,22 @@
-<h3>Sign In!</h3>
-<div style="width: 300px;">
+<h1>Sign In</h1>
+<pre>
+
+</pre>
+
+<div class="container">
   <form (ngSubmit)="login()">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="string" class="form-control" id="username" required [(ngModel)]="user" name="name">
-    </div>
- 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password"  name="password">
-    </div>
- 
-    <button type="submit" class="btn btn-success">Submit</button>
+  <label for="name"><b>Username  </b></label>
+  <input type="string" placeholder="Enter Username" class="form-control" id="username" required [(ngModel)]="user" name="name">
+  
+
+  <br/>
+
+  <label for="psw"><b>Password   </b></label>
+  <input type="password" placeholder="Enter Password" class="form-control" id="password"  name="password" required>
+      
+  <br/>
+
+  <button type="submit" class="submit">Login</button>
   </form>
 </div>
  

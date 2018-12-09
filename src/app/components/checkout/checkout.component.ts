@@ -37,4 +37,8 @@ export class CheckoutComponent implements OnInit {
     console.log(this.ticket$);
   }
 
+  public changeCart(product: Ticket, amount: number) {
+    this.ticketService.addTicket(product, amount);
+  }
+
 }
