@@ -29,7 +29,7 @@ export class ConcertsComponent implements OnInit {
   ticket$: Ticket[];
   cart$: TicketService[];
   amount: number[];
-  options: any = [[]];
+  options: number [];
   // constructor(private squadService: SquaddataService, private ticketService: TicketService) { }
   constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService,
   private app: SignInService, private http: HttpClient, private router: Router,
@@ -54,9 +54,6 @@ export class ConcertsComponent implements OnInit {
     }
     return this.options;
   }
-
-
-
 
   public addCart(product: Ticket, amount: number) {
     this.ticketService.addTicket(product, amount);
