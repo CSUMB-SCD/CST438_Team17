@@ -11,8 +11,8 @@
         <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
         <mat-card-actions>
           <span>Price: {{ element.price }}</span>
-          <span>Amount: <input type=number required [(ngModel)]="amount" matInput placeholder="1"></span>
-          <span>Stock: {{ element.quantity }}</span>
+          <span>Amount: <input type=number required [(ngModel)]="amount" matInput placeholder="0"></span>
+          <span>Stock: {{ element.stock }}</span>
           <span><button mat-button (click)="addCart(element, amount)">Add to Cart</button></span>
           <span><button mat-button (click)="addTicket(element)" routerLink="/details">Details</button></span>
         </mat-card-actions>
@@ -20,13 +20,3 @@
     <br>
   </div>
 </body>
-
-<!-- <h1>Products</h1>
- 
-<div *ngFor="let ticket of tickets$ | async" style="width: 300px;">
-  <tr>
-    <td>{{ticket.name}}</td>
-    <td></td>
-    <td></td>
-  </tr>
-</div> -->
