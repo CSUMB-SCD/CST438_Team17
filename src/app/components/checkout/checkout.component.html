@@ -13,7 +13,7 @@
     <th colspan="2">Amount of Items</th>
 
   <tr *ngFor= "let element of ticket$">
-    <td><img src="https://img.freepik.com/free-vector/cinema-ticket_1459-2366.jpg?size=338&ext=jpg" alt="Concert Logo" style="width:150px; height:100px"/>
+    <td><img src="../assets/images/{{ element.artist }}.jpg" alt="Concert Logo" style="width:150px; height:100px"/>
       <br/><br/>
        {{ element.artist }}</td>
 
