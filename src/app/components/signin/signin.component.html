@@ -1,17 +1,29 @@
-<h3>Sign In!</h3>
-<div style="width: 300px;">
-  <form (ngSubmit)="login()">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="string" class="form-control" id="username" required [(ngModel)]="myUser" name="name">
-    </div>
- 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password"  name="password">
-    </div>
- 
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-</div>
- 
+<h1>Sign In</h1>
+
+<br/>
+
+<mat-card class="signIn">
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="form">
+      <table class="signIn" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="user"><b>Username</b>
+            <input matInput placeholder="Username" [(ngModel)]="user" name="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+        <td><mat-form-field class="pass"><b>Password</b>
+        <input matInput placeholder="Password" type="password" name="password" required> 
+        </mat-form-field></td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" color="yellow">Login</button>
+  </mat-card-actions>
+</mat-card>
