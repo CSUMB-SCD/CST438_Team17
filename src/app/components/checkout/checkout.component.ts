@@ -19,10 +19,12 @@ export class CheckoutComponent implements OnInit {
   checkname: Object;
   message: String;
   total: number;
+  amount: number[];
 
   constructor(private squadService: SquaddataService, private app: SignInService,
     private http: HttpClient, private router: Router, private ticketService: TicketService) {
       this.ticket$ = ticketService.getTickets();
+      this.amount = ticketService.getCart();
       this.total = 0;
     }
 
@@ -34,7 +36,7 @@ export class CheckoutComponent implements OnInit {
       }
       this.user = this.app.passUser();
       for (let i = 0; i < this.ticket$.length; i++) {
-        this.total += +this.ticket$[i].price + 0;
+        this.total += (+this.ticket$[i].price + 0) * (+this.amount[i] + 0);
       }
       console.log(this.total);
 
@@ -42,7 +44,9 @@ export class CheckoutComponent implements OnInit {
 
   verifyPurchase() {
     if (this.app.takeMoney(this.total)) {
-      this.router.navigate(['/confirmation']);
+      if (this.ticketService.takeStock(this.amount)) {
+        this.router.navigate(['/confirmation']);
+      }
     }
     this.user = this.app.passUser();
     console.log(this.user);

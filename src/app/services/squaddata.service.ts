@@ -12,12 +12,16 @@ import { Observable } from 'rxjs';
 
 export class SquaddataService {
   URL: string;
+  ticketBase: Ticket[];
+  checkBase: Object;
   private cartSource = new BehaviorSubject('x');
   currentMessage = this.cartSource.asObservable();
 
   constructor(protected httpClient: HttpClient) {
     console.log('squad is working');
     this.URL = '';
+    this.ticketBase = [];
+    this.checkBase = [];
   }
   getSquad() {
     return this.httpClient.get<Array<SquadMember>>(
