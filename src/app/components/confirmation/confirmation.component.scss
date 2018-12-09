@@ -7,12 +7,22 @@ h3{
 
 button{
     background-color: red;
-    color:black;
-  }
+    color:White;
+}
 
-  span{
+#confirm{
+    background-color: green; 
+    color:White
+}
+
+mat-card{
+    background-color:#fedc3d;
+}
+  
+span{
     padding: 20px;
-  }
+}
+
 div{
     text-align: center;
 }
