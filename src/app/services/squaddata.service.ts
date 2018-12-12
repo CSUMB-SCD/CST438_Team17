@@ -31,4 +31,8 @@ export class SquaddataService {
     return this.httpClient.get<Array<Ticket>>(
       '../assets/dbMock.json');
   }
+  getData()  {
+    return this.httpClient.get<Array<Ticket>>(
+      'https://team17-ticketservice.herokuapp.com/ConcertTickets');
+  }
 }

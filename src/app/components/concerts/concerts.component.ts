@@ -37,7 +37,10 @@ export class ConcertsComponent implements OnInit {
 
   ngOnInit() {
     // this.getTickets();
-    this.squadService.getMockData().subscribe(
+    // this.squadService.getMockData().subscribe(
+    //   squadService => this.ticket$ = squadService
+    // );
+    this.squadService.getData().subscribe(
       squadService => this.ticket$ = squadService
     );
     this.app.currentMessage.subscribe(message => this.message = message);
