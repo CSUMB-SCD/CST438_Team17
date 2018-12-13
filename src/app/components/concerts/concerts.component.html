@@ -15,6 +15,7 @@
               <option *ngFor="let option of createRange(element.stock);" value = {{option}}>{{option}}</option>
             </select>
           </span>
+          <span>Stock: {{ element.stock }}</span>
           <!-- {{ resetStock() }}
           <span>Stock: {{ element.stock }}</span>
           <span>Amount: <input type=number required [(ngModel)]="amount" matInput placeholder="0"></span> -->
