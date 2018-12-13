@@ -36,7 +36,8 @@ export class CheckoutComponent implements OnInit {
       }
       this.user = this.app.passUser();
       for (let i = 0; i < this.ticket$.length; i++) {
-        this.total += (+this.ticket$[i].price + 0) * (+this.amount[i] + 0);
+        // this.total += (+this.ticket$[i].price + 0) * (+this.amount[i] + 0);
+        this.total += (this.ticket$[i].price * this.amount[i]);
       }
       console.log(this.total);
 
