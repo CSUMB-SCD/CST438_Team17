@@ -36,10 +36,6 @@ export class ConcertsComponent implements OnInit {
   private squadService: SquaddataService, private ticketService: TicketService) { }
 
   ngOnInit() {
-    // this.getTickets();
-    // this.squadService.getMockData().subscribe(
-    //   squadService => this.ticket$ = squadService
-    // );
     this.squadService.getData().subscribe(
       squadService => this.ticket$ = squadService
     );

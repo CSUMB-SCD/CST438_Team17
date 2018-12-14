@@ -35,4 +35,8 @@ export class SquaddataService {
     return this.httpClient.get<Array<Ticket>>(
       'https://team17-ticketservice.herokuapp.com/ConcertTickets');
   }
+  setData(ticket: Ticket) {
+    return this.httpClient.put<Array<Ticket>>(
+      'https://team17-checkoutsvc.herokuapp.com/ConcertTickets/' + ticket.id, ticket);
+  }
 }

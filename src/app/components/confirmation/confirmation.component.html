@@ -1,7 +1,7 @@
 <h1>Confirmation Page</h1>
 <br>
 <br>
-<div *ngFor="let element of cart$"> 
+<div *ngFor="let element of cart"> 
     <mat-card >
       <mat-card-title>{{ element.artist }}</mat-card-title>
         <img src="../assets/images/{{ element.artist }}.jpg" alt="Test Concert" width="200" height="150">
@@ -16,4 +16,4 @@
 <h3>Enjoy your concert</h3>
 <span><button mat-button routerLink="/checkout">Cancel Purchase</button></span>
 <!-- Include a function to delete stock and minus money amount on customer -->
-<span><button id="confirm" mat-button routerLink="/" (click)="resetCart()">Confirm</button></span>
+<span><button id="confirm" mat-button routerLink="/" (click)="updateCart()">Confirm</button></span>
