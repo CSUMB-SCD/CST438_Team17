@@ -20,12 +20,13 @@
       <td> {{ element.venue }} </td>
       <td>{{ element.date }}</td>
 
-      <td>Tickets In Cart: <input type= number matInput placeholder="{{amount[i]}}"> <br/> Price for each: ${{ element.price }}
+      <td>Tickets In Cart: <input type= number matInput placeholder="{{amount[i]}}" required [(ngModel)]="amount[i]"> <br/> Price for each: ${{ element.price }}
 </td>
+      <td><span><button mat-button (click)=addCart(element,i);>Update Ticket Amount</button></span></td>
   </tr>
   </table>
   <h3>Your total: {{ total }}</h3>
   <div id="button2">
-      <span><button mat-button (click)="verifyPurchase()">Confirm Purchase</button></span>
+      <span><button mat-button (click)=verifyPurchase()>Confirm Purchase</button></span>
   </div>
 <router-outlet></router-outlet>

@@ -42,6 +42,10 @@ export class TicketService {
     this.amount.push(amount);
   }
 
+  public updateCart(index: number, amount: number) {
+    this.amount[index] = amount;
+  }
+
   public getCart(): number[] {
     return this.amount;
   }
