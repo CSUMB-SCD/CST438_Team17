@@ -1,3 +1,4 @@
+import { SquaddataService } from './../../services/squaddata.service';
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from 'src/app/services/ticket.service';
 import { Ticket } from './../../models/ticket';
@@ -8,10 +9,10 @@ import { Ticket } from './../../models/ticket';
   styleUrls: ['./confirmation.component.scss']
 })
 export class ConfirmationComponent implements OnInit {
-  cart$: Ticket[];
+  cart: Ticket[];
 
-  constructor(private ticketService: TicketService) {
-    this.cart$ = ticketService.getTickets();
+  constructor(private ticketService: TicketService, private squadService: SquaddataService) {
+    this.cart = ticketService.getTickets();
   }
 
   ngOnInit() {
@@ -19,6 +20,17 @@ export class ConfirmationComponent implements OnInit {
 
   resetCart() {
     this.ticketService.resetTickets();
+  }
+
+  updateCart() {
+    for (const tick of this.cart) {
+      this.updateDatabase(tick);
+    }
+    this.resetCart();
+  }
+
+  updateDatabase(ticket: Ticket) {
+    this.squadService.setData(ticket);
   }
 
 }

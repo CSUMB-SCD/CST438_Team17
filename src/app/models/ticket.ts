@@ -1,5 +1,6 @@
 import { OnInit } from '@angular/core';
 export class Ticket {
+    id: string;
     artist: string;
     venue: string;
     date: string;
