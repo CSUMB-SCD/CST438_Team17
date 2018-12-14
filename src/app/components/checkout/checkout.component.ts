@@ -42,10 +42,21 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  public addCart(product: Ticket, index: number) {
+    console.log(index);
+    this.ticketService.updateCart(index, this.amount[index]);
+    this.total = 0;
+    for (let i = 0; i < this.ticket$.length; i++) {
+      this.total += (this.ticket$[i].price * this.amount[i]);
+    }
+  }
+
   verifyPurchase() {
     if (this.app.takeMoney(this.total)) {
       if (this.ticketService.takeStock(this.amount)) {
         this.router.navigate(['/confirmation']);
+      } else {
+        alert('Not enough in stock!');
       }
     }
     this.user = this.app.passUser();

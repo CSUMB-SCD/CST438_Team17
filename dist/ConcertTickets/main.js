@@ -100,7 +100,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-//import 'rxjs/add/operator/finally';
+// import 'rxjs/add/operator/finally';
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
     }
@@ -235,7 +235,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$\">\r\n    <td><img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Tickets In Cart: <input type= number matInput placeholder=\"{{element.quantity}}\"> <br/> Price for each: {{ element.price }}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <div id=\"button2\">\r\n    <span><button mat-button routerLink=\"/confirmation\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<style>\r\n  @import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans');\r\n</style> \r\n<head>\r\n    <h1>Home Page</h1>\r\n</head>\r\n<h1>Checkout</h1>\r\n<h2>Hello {{ user.username }}, You have ${{ user.funds}}!</h2>\r\n<br/> <br/> <br/>\r\n<table>\r\n\r\n    <th colspan=\"3\">Items in Cart</th>\r\n    <th colspan=\"2\">Amount of Items</th>\r\n\r\n  <tr *ngFor= \"let element of ticket$, let i = index\">\r\n    <td><img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Concert Logo\" style=\"width:150px; height:100px\"/>\r\n      <br/><br/>\r\n       {{ element.artist }}</td>\r\n\r\n      <td> {{ element.venue }} </td>\r\n      <td>{{ element.date }}</td>\r\n\r\n      <td>Tickets In Cart: <input type= number matInput placeholder=\"{{amount[i]}}\"> <br/> Price for each: ${{ element.price }}\r\n</td>\r\n  </tr>\r\n  </table>\r\n  <h3>Your total: {{ total }}</h3>\r\n  <div id=\"button2\">\r\n      <span><button mat-button (click)=\"verifyPurchase()\">Confirm Purchase</button></span>\r\n  </div>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -289,6 +289,8 @@ var CheckoutComponent = /** @class */ (function () {
         this.router = router;
         this.ticketService = ticketService;
         this.ticket$ = ticketService.getTickets();
+        this.amount = ticketService.getCart();
+        this.total = 0;
     }
     CheckoutComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -296,9 +298,20 @@ var CheckoutComponent = /** @class */ (function () {
         if (this.message === 'x') {
             this.router.navigate(['../signin']);
         }
-        this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
-        console.log(this.checkname);
-        console.log(this.ticket$);
+        this.user = this.app.passUser();
+        for (var i = 0; i < this.ticket$.length; i++) {
+            this.total += (this.ticket$[i].price * this.amount[i]);
+        }
+        console.log(this.total);
+    };
+    CheckoutComponent.prototype.verifyPurchase = function () {
+        if (this.app.takeMoney(this.total)) {
+            if (this.ticketService.takeStock(this.amount)) {
+                this.router.navigate(['/confirmation']);
+            }
+        }
+        this.user = this.app.passUser();
+        console.log(this.user);
     };
     CheckoutComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
@@ -323,7 +336,7 @@ var CheckoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <h2>Hello {{ checkname[0].username }}, You have ${{checkname[0].funds}}!</h2>\r\n  <div *ngFor=\"let element of ticket$\"> \r\n    <mat-card>\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Amount: <input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"0\"></span>\r\n          <span>Stock: {{ element.stock }}</span>\r\n          <span><button mat-button (click)=\"addCart(element, amount)\">Add to Cart</button></span>\r\n          <span><button mat-button (click)=\"addTicket(element)\" routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n  </div>\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Concerts Page</h1>\r\n</head>\r\n<body>\r\n  <h1>Concerts</h1>\r\n  <h2>Hello {{ user.username }}, You have ${{ user.funds }}!</h2>\r\n  <div *ngFor=\"let element of ticket$\"> \r\n    <mat-card>\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: ${{ element.price }}</span>\r\n          <span>Amount:\r\n            <select id=\"{{ element.artist }}\">\r\n              <option *ngFor=\"let option of createRange(element.stock);\" value = {{option}}>{{option}}</option>\r\n            </select>\r\n          </span>\r\n          <span>Stock: {{ element.stock }}</span>\r\n          <!-- {{ resetStock() }}\r\n          <span>Stock: {{ element.stock }}</span>\r\n          <span>Amount: <input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"0\"></span> -->\r\n          <span><button mat-button (click)=\"addCart(element, amount)\" >Add to Cart</button></span>\r\n          <span><button mat-button (click)=\"addTicket(element)\" routerLink=\"/details\">Details</button></span>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n  </div>\r\n</body>\r\n"
 
 /***/ }),
 
@@ -387,21 +400,26 @@ var ConcertsComponent = /** @class */ (function () {
     }
     ConcertsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // this.getTickets();
-        this.squadService.getMockData().subscribe(function (squadService) { return _this.ticket$ = squadService; });
-        /*
-        for (let i = 0; i < this.ticket$.length; i++) {
-          this.ticket$[i].inCart = 0;
-        }
-        */
+        this.squadService.getData().subscribe(function (squadService) { return _this.ticket$ = squadService; });
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
         if (this.message === 'x') {
             this.router.navigate(['../signin']);
         }
-        this.app.getUser(this.message).subscribe(function (data) { return _this.checkname = data; });
+        this.user = this.app.passUser();
+    };
+    ConcertsComponent.prototype.createRange = function (num) {
+        this.options = [];
+        for (var i = 1; i <= num; i++) {
+            this.options.push(i);
+        }
+        return this.options;
     };
     ConcertsComponent.prototype.addCart = function (product, amount) {
+        var inputElement = document.getElementById(product.artist);
+        console.log(inputElement.value);
+        amount = Number(inputElement.value);
         this.ticketService.addTicket(product, amount);
+        this.ticketService.pushCart(amount);
     };
     ConcertsComponent.prototype.addTicket = function (product) {
         this.ticketService.oneTicket(product);
@@ -431,7 +449,7 @@ var ConcertsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Confirmation Page</h1>\r\n<br>\r\n<br>\r\n<div *ngFor=\"let element of cart$\"> \r\n    <mat-card >\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Quantity: {{ element.quantity }}</span>  \r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n</div>\r\n<h3>Your order as been completed!</h3>\r\n<h3>Enjoy your concert</h3>\r\n<div>\r\n    <span><button mat-button routerLink=\"/checkout\">Cancel Purchase</button></span>\r\n    <!-- Include a function to delete stock and minus money amount on customer -->\r\n    <span><button id=\"confirm\" mat-button routerLink=\"/\">Confirm</button></span>\r\n</div>\r\n"
+module.exports = "<h1>Confirmation Page</h1>\r\n<br>\r\n<br>\r\n<div *ngFor=\"let element of cart\"> \r\n    <mat-card >\r\n      <mat-card-title>{{ element.artist }}</mat-card-title>\r\n        <img src=\"../assets/images/{{ element.artist }}.jpg\" alt=\"Test Concert\" width=\"200\" height=\"150\">\r\n        <mat-card-actions>\r\n          <span>Price: {{ element.price }}</span>\r\n          <span>Quantity: {{ element.quantity }}</span>  \r\n        </mat-card-actions>\r\n    </mat-card>\r\n    <br>\r\n</div>\r\n<h3>Your order as been completed!</h3>\r\n<h3>Enjoy your concert</h3>\r\n<span><button mat-button routerLink=\"/checkout\">Cancel Purchase</button></span>\r\n<!-- Include a function to delete stock and minus money amount on customer -->\r\n<span><button id=\"confirm\" mat-button routerLink=\"/\" (click)=\"updateCart()\">Confirm</button></span>\r\n"
 
 /***/ }),
 
@@ -442,7 +460,7 @@ module.exports = "<h1>Confirmation Page</h1>\r\n<br>\r\n<br>\r\n<div *ngFor=\"le
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "h1 {\n  text-align: center; }\n\nh3 {\n  text-align: center; }\n\nbutton {\n  background-color: red;\n  color: White; }\n\n#confirm {\n  background-color: green;\n  color: White; }\n\nmat-card {\n  background-color: #fedc3d; }\n\nspan {\n  padding: 20px; }\n\ndiv {\n  text-align: center; }\n"
+module.exports = "h1 {\n  text-align: center; }\n\nh3 {\n  text-align: center; }\n\nbutton {\n  background-color: red;\n  color: White; }\n\n#confirm {\n  background-color: green;\n  color: White; }\n\nmat-card {\n  background-color: #fedc3d; }\n\nspan {\n  padding: 20px; }\n\ndiv {\n  position: relative;\n  padding-left: 300px;\n  padding-right: 300px; }\n"
 
 /***/ }),
 
@@ -456,8 +474,9 @@ module.exports = "h1 {\n  text-align: center; }\n\nh3 {\n  text-align: center; }
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmationComponent", function() { return ConfirmationComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_services_ticket_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/ticket.service */ "./src/app/services/ticket.service.ts");
+/* harmony import */ var _services_squaddata_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../services/squaddata.service */ "./src/app/services/squaddata.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_ticket_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/ticket.service */ "./src/app/services/ticket.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -469,20 +488,35 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ConfirmationComponent = /** @class */ (function () {
-    function ConfirmationComponent(ticketService) {
+    function ConfirmationComponent(ticketService, squadService) {
         this.ticketService = ticketService;
-        this.cart$ = ticketService.getTickets();
+        this.squadService = squadService;
+        this.cart = ticketService.getTickets();
     }
     ConfirmationComponent.prototype.ngOnInit = function () {
     };
+    ConfirmationComponent.prototype.resetCart = function () {
+        this.ticketService.resetTickets();
+    };
+    ConfirmationComponent.prototype.updateCart = function () {
+        for (var _i = 0, _a = this.cart; _i < _a.length; _i++) {
+            var tick = _a[_i];
+            this.updateDatabase(tick);
+        }
+        this.resetCart();
+    };
+    ConfirmationComponent.prototype.updateDatabase = function (ticket) {
+        this.squadService.setData(ticket);
+    };
     ConfirmationComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-confirmation',
             template: __webpack_require__(/*! ./confirmation.component.html */ "./src/app/components/confirmation/confirmation.component.html"),
             styles: [__webpack_require__(/*! ./confirmation.component.scss */ "./src/app/components/confirmation/confirmation.component.scss")]
         }),
-        __metadata("design:paramtypes", [src_app_services_ticket_service__WEBPACK_IMPORTED_MODULE_1__["TicketService"]])
+        __metadata("design:paramtypes", [src_app_services_ticket_service__WEBPACK_IMPORTED_MODULE_2__["TicketService"], _services_squaddata_service__WEBPACK_IMPORTED_MODULE_0__["SquaddataService"]])
     ], ConfirmationComponent);
     return ConfirmationComponent;
 }());
@@ -498,7 +532,7 @@ var ConfirmationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>\r\n          <img src=\"../assets/images/{{ ourTicket.artist }}.jpg\" alt=\"Concert Image\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info: {{ ourTicket.description }}</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: {{ ourTicket.price }}</span>\r\n            <span>Amount: <input input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"1\"></span>\r\n            <span>Stock: {{ ourTicket.quantity }}</span>\r\n            <span><button mat-button (click)=\"addCart(ourTicket,amount)\">Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
+module.exports = "<head>\r\n  <h1>Details Page</h1>\r\n</head>\r\n\r\n<body>\r\n  <h1>Details</h1>\r\n  <div>\r\n    <mat-card>\r\n        <mat-card-title>{{ ourTicket.artist }}</mat-card-title>\r\n          <img src=\"../assets/images/{{ ourTicket.artist }}.jpg\" alt=\"Concert Image\" width=\"650\" height=\"400\">\r\n          <span>\r\n            <h2>Concert Info: {{ ourTicket.description }}</h2>\r\n          </span>\r\n          <mat-card-actions>\r\n            <span>Price: ${{ ourTicket.price }}</span>\r\n            <span>Amount: <input input type=number required [(ngModel)]=\"amount\" matInput placeholder=\"1\"></span>\r\n            <span>Stock: {{ ourTicket.stock }}</span>\r\n            <span><button mat-button (click)=\"addCart(ourTicket,amount)\">Add to Cart</button></span>\r\n          </mat-card-actions>\r\n      </mat-card>\r\n  </div>\r\n\r\n</body>\r\n"
 
 /***/ }),
 
@@ -615,12 +649,12 @@ var HomeComponent = /** @class */ (function () {
         this.app = app;
         this.http = http;
         this.router = router;
-        this.checkname = [];
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.app.currentMessage.subscribe(function (message) { return _this.message = message; });
         this.user = this.app.passUser();
+        console.log(this.user);
         /*
         if (this.message === 'x') {
           this.router.navigate(['../signin']);
@@ -672,7 +706,7 @@ var SignIn = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Sign In!</h3>\r\n<div style=\"width: 300px;\">\r\n  <form (ngSubmit)=\"login()\">\r\n    <div class=\"form-group\">\r\n      <label for=\"name\">Name</label>\r\n      <input type=\"string\" class=\"form-control\" id=\"username\" required [(ngModel)]=\"myUser\" name=\"name\">\r\n    </div>\r\n \r\n    <div class=\"form-group\">\r\n      <label for=\"password\">Password</label>\r\n      <input type=\"password\" class=\"form-control\" id=\"password\"  name=\"password\">\r\n    </div>\r\n \r\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\r\n  </form>\r\n</div>\r\n "
+module.exports = "<h1>Sign In</h1>\r\n\r\n<br/>\r\n\r\n<mat-card class=\"signIn\">\r\n  <mat-card-header>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <form class=\"form\">\r\n      <table class=\"signIn\" cellspacing=\"0\">\r\n        <tr>\r\n          <td>\r\n            <input type=\"text\" placeholder=\"Username\" [(ngModel)]=\"myUser\" name=\"username\" required>\r\n          </td>\r\n        </tr>\r\n        <tr>\r\n        <input placeholder=\"Password\" type=\"password\" name=\"password\" required>\r\n        </tr>\r\n      </table>\r\n      <mat-card-actions>\r\n          <button mat-raised-button (click)=\"login()\" color=\"yellow\">Login</button>\r\n        </mat-card-actions>\r\n    </form>\r\n  </mat-card-content>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -724,21 +758,12 @@ var SignInComponent = /** @class */ (function () {
         }
         else {
             this.app.changeMessage(this.myUser);
-            this.app.makeUser(this.checkname[0].username, this.checkname[0].funds);
+            this.app.makeUser(this.myUser, this.checkname[0].funds);
             this.makeUser = this.app.passUser();
-            console.log(this.myUser);
+            // console.log(this.myUser);
             this.router.navigate(['../']);
         }
         return false;
-    };
-    SignInComponent.prototype.setUp = function () {
-        /*
-        this.app.getUser(this.message).subscribe(data => this.checkname = data);
-        console.log(this.checkname);
-        */
-        this.app.makeUser(this.checkname[0].username, this.checkname[0].funds);
-        this.makeUser = this.app.passUser();
-        console.log(this.myUser);
     };
     SignInComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -788,7 +813,7 @@ var SignInService = /** @class */ (function () {
         this.messageSource = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]('x');
         this.currentMessage = this.messageSource.asObservable();
         this.user.username = '';
-        this.user.funds = 500;
+        this.user.funds = 0;
     }
     SignInService.prototype.getUser = function (username) {
         return this.http.get(this.baseUrl + "signin/" + username);
@@ -799,6 +824,18 @@ var SignInService = /** @class */ (function () {
     };
     SignInService.prototype.passUser = function () {
         return this.user;
+    };
+    SignInService.prototype.takeMoney = function (total) {
+        console.log(total);
+        if (this.user.funds < total) {
+            alert('Insufficent funds! Get back to work shorty');
+            return false;
+        }
+        else {
+            this.user.funds -= total;
+            console.log(this.user.funds);
+            return true;
+        }
     };
     SignInService.prototype.changeMessage = function (message) {
         this.messageSource.next(message);
@@ -911,12 +948,20 @@ var SquaddataService = /** @class */ (function () {
         this.currentMessage = this.cartSource.asObservable();
         console.log('squad is working');
         this.URL = '';
+        this.ticketBase = [];
+        this.checkBase = [];
     }
     SquaddataService.prototype.getSquad = function () {
         return this.httpClient.get('https://api.myjson.com/bins/14g5si');
     };
     SquaddataService.prototype.getMockData = function () {
         return this.httpClient.get('../assets/dbMock.json');
+    };
+    SquaddataService.prototype.getData = function () {
+        return this.httpClient.get('https://team17-ticketservice.herokuapp.com/ConcertTickets');
+    };
+    SquaddataService.prototype.setData = function (ticket) {
+        return this.httpClient.put('https://team17-checkoutsvc.herokuapp.com/ConcertTickets/' + ticket.id, ticket);
     };
     SquaddataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -955,13 +1000,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TicketService = /** @class */ (function () {
     function TicketService() {
         this.tickets = [];
+        this.amount = [];
     }
     TicketService.prototype.getTickets = function () {
         return this.tickets;
     };
     TicketService.prototype.addTicket = function (newTick, amount) {
         if (this.tickets.includes(newTick)) {
-            this.index = this.tickets.indexOf(newTick);
             //  this.tickets[this.index].inCart = this.tickets[this.index].inCart + amount;
         }
         else {
@@ -975,6 +1020,26 @@ var TicketService = /** @class */ (function () {
     };
     TicketService.prototype.getMyTicket = function () {
         return this.myTicket;
+    };
+    TicketService.prototype.pushCart = function (amount) {
+        this.amount.push(amount);
+    };
+    TicketService.prototype.getCart = function () {
+        return this.amount;
+    };
+    TicketService.prototype.takeStock = function (amount) {
+        for (var i = 0; i < amount.length; i++) {
+            if (amount[i] > this.tickets[i].stock) {
+                return false;
+            }
+        }
+        for (var j = 0; j < amount.length; j++) {
+            this.tickets[j].stock -= amount[j];
+        }
+        return true;
+    };
+    TicketService.prototype.resetTickets = function () {
+        this.tickets = [];
     };
     TicketService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

@@ -1,7 +1,7 @@
 [
   {
     "artist": "Eminem",
-    "stock": "50",
+    "stock": "11",
     "img_src": "www.something.com",
     "description": "This concert is going to be an epic time, don't forget to bring your friends!",
     "venue": "Radio City Music Hall",
@@ -10,7 +10,7 @@
   },
   {
     "artist": "Green Day",
-    "stock": "50",
+    "stock": "25",
     "img_src": "www.somethingElse.com",
     "description": "This concert is going to be timeless, don't forget to bring your friends!",
     "venue": "The Wiltern",
@@ -19,7 +19,7 @@
   },
   {
     "artist": "Dillon Francis",
-    "stock": "50",
+    "stock": "20",
     "img_src": "www.somethingElse.com",
     "description": "This concert is going to be timeless, don't forget to bring your friends!",
     "venue": "First Avenue",
@@ -64,7 +64,7 @@
   },
   {
     "artist": "Drake",
-    "stock": "50",
+    "stock": "13",
     "img_src": "www.something.com",
     "description": "This concert is going to be an epic time, don't forget to bring your friends!",
     "venue": "Showbox at the Market",

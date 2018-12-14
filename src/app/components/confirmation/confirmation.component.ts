@@ -10,12 +10,19 @@ import { Ticket } from './../../models/ticket';
 })
 export class ConfirmationComponent implements OnInit {
   cart: Ticket[];
+  amount: number[];
+  total: number;
 
   constructor(private ticketService: TicketService, private squadService: SquaddataService) {
     this.cart = ticketService.getTickets();
+    this.amount = ticketService.getCart();
+    this.total = 0;
   }
 
   ngOnInit() {
+    for (let i = 0; i < this.cart.length; i++) {
+      this.total += (this.cart[i].price * this.amount[i]);
+    }
   }
 
   resetCart() {

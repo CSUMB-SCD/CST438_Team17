@@ -26,14 +26,15 @@ export class SignInComponent implements OnInit {
 
   login() {
     this.app.getUser(this.myUser).subscribe(data => this.checkname = data);
+    // console.log(this.checkname);
      if (this.checkname[0] == null) {
       alert('Invalid Login!');
       // this.router.navigate(['../']);
      } else {
       this.app.changeMessage(this.myUser);
-      this.app.makeUser(this.checkname[0].username, this.checkname[0].funds);
+      this.app.makeUser(this.myUser, 500);
       this.makeUser = this.app.passUser();
-      console.log(this.myUser);
+      // console.log(this.myUser);
       this.router.navigate(['../']);
     }
      return false;
